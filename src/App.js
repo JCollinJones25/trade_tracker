@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+
+  const [stocks, setStocks] = useState(null)
+
+  const apiKey = process.env.KEY
+  const URL = `https://api.stockdata.org/v1/data/quote?symbols=AAPL,TSLA,MSFT&api_token=${apiKey}`;
+
+  const getStocks = () => {
+      fetch(URL)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+
+        setStocks(result);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div className="App">
+    <h1> hello world </h1>
+  </div>
+  )
 }
 
 export default App;

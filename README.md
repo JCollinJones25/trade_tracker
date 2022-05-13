@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## Project Description 
+My frontend react app will render current stock market data to the user.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to the API you plan to use
+Click [here](https://www.stockdata.org/)
 
-## Available Scripts
+## Example data response you plan to use
+{
+            "ticker": "TSLA",
+            "name": "Tesla Inc",
+            "exchange_short": "NASDAQ",
+            "exchange_long": "NASDAQ Stock Exchange",
+            "mic_code": "XNAS",
+            "currency": "USD",
+            "price": 764.63,
+            "day_high": 787.17,
+            "day_low": 751.77,
+            "day_open": 773.8,
+            "52_week_high": 1243.49,
+            "52_week_low": 546.98,
+            "market_cap": 731101265920
+}
 
-In the project directory, you can run:
+## Visual of your component hierarchy
+![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/Screen%20Shot%202022-05-13%20at%204.09.07%20PM.png?raw=true)
 
-### `npm start`
+## Wire Frames
+![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/Screen%20Shot%202022-05-13%20at%204.14.19%20PM.png?raw=true)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User Stories
+As a user, I want to see current stock market data displayed so that I can research particular stock data.
+As a user, I want to see both general information on the market and on individual stocks. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### MVP Goals
+- Functional interactive features
+- Data from third party API
+- 4 Components
+- Deployed on web and Github with hidden API key(s)
+- React Router
+- Styling
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Stretch Goals (if applicable)
+- include second API for 'WallstreetBets' data to see current opinions on the market.

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Search from "./Search"
+import Results from './Results'
 
 const SearchContainer = () => {
 
@@ -40,10 +41,12 @@ const SearchContainer = () => {
     return (
         <>
           <Search
-            onSubmit={handleSubmit}
             onChange={handleSearch}
+            onSubmit={handleSubmit}
             value={searchState}
           />
+          
+          <Results stock={stock}/>
         </>
       );
 }

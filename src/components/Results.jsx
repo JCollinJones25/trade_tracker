@@ -1,31 +1,14 @@
-// import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
+function Results(props) {
+    return (
+      <div className="result">
+        <Link to={`/${props.stock}`}>
+          <p>{props.stock}</p>
+        </Link>
+      </div>
+    );
+  };
 
 
-// function Results(props) {
-// console.log(`${props.stocks} ====== props`)
-
-// const loaded = () => {
-//     return (
-//         <>
-//         {props.stocks.map((stock) => {
-//             return (
-//                 <>
-//                 <Link to={`/stock`}>
-//                 <p>{stock.ticker}</p>
-//                 </Link>
-//                 </>
-//             )
-//         })}
-//     </>
-//   )
-// }
-
-// const loading = () => {
-//     <p>Loading...</p>
-// }
-
-// return props ? loaded : loading
-
-// }
-
-// export default Results;
+export default Results;

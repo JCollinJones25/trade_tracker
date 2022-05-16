@@ -1,3 +1,4 @@
+// import Stock from "../pages/Stock"
 
 const Search = (props) => {
     return (
@@ -8,7 +9,7 @@ const Search = (props) => {
               className="searchbar"
               name="search"
               placeholder="Search stocks"
-              stock={props.stock}
+              value={props.value}
               onChange={props.onChange}
             />
           </form>

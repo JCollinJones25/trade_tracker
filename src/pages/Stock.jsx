@@ -1,35 +1,27 @@
-import Nav from '../components/Nav'
-
+import Nav from "../components/Nav";
 
 const Stock = (props) => {
-  
-    console.log(props)
+  console.log(props);
 
-    const loaded = () => {
-        return (
-        <>
+  const loaded = () => {
+    return (
+      <>
         <Nav />
-        {props.map((stock) => {
-            return (
-              <>
-                <h1>{stock.ticker}</h1>
-                <h2>{stock.name}</h2>
-                <h3>${stock.price} / share</h3>
-                <p>Market Cap: {stock.market_cap}</p>
-                <p>Day high: {stock.day_high}</p>
-                <p>Day low: {stock.day_low}</p>
-              </>
-            );
-          })}
-        </>
-      );
-    };
-  
-    const loading = () => {
-      return <h3>FETCHING DATA...</h3>;
-    };
-  
-    return props ? loaded() : loading();
-}
+        <h1>{props.ticker}</h1>
+        <h2>{props.name}</h2>
+        <h3>${props.price} / share</h3>
+        <p>Market Cap: {props.market_cap}</p>
+        <p>Day high: {props.day_high}</p>
+        <p>Day low: {props.day_low}</p>
+      </>
+    );
+  };
 
-export default Stock
+  const loading = () => {
+    return <h3>FETCHING DATA...</h3>;
+  };
+
+  return props ? loaded() : loading();
+};
+
+export default Stock;

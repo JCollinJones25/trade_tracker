@@ -1,44 +1,49 @@
 import { useState, useEffect } from "react";
 import Search from "./Search"
-import Results from "./Results"
 
 const SearchContainer = () => {
 
     const [searchState, setSearchState] = useState('')
-    const [stocks, setStocks] = useState(null);
 
-    const apiKey = process.env.REACT_APP_API;
-    const URL = `https://api.stockdata.org/v1/data/quote?symbols=${searchState}&api_token=${apiKey}`
-  
-    const getStocks = async (e) => {
-        e.preventDefault()
+    const [stock, setStock] = useState(null);
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      try{
+
+        const apiKey = process.env.REACT_APP_API;
+
+        const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${apiKey}`
+
         const response = await fetch(URL);
         const data = await response.json();
         console.log(data)
-        setStocks(data.data);
-        console.log(data.data);
+        setStock(data.data);
+      } catch (error) {
+        console.log(error)
+      }
     };
   
     useEffect(() => {
-      getStocks();
+      handleSubmit();
     }, []);
   
 
     function handleSearch(e) {
         setSearchState(e.target.value)
-        console.log(searchState)
+        setStock(e.target.value)
+        console.log(stock)
       }
-
-    console.log(stocks)
+      
+      console.log(searchState)
 
     return (
         <>
           <Search
-            onSubmit={getStocks}
+            onSubmit={handleSubmit}
             onChange={handleSearch}
-            stock={searchState}
+            value={searchState}
           />
-          <Results stocks={stocks} />
         </>
       );
 }

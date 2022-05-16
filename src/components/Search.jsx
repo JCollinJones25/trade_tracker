@@ -1,4 +1,3 @@
-// import Stock from "../pages/Stock"
 
 const Search = (props) => {
     return (

@@ -1,6 +1,7 @@
 import "./App.css";
+import { Outlet } from 'react-router'
 
-function App() {
+const App = () => {
 
   // const [stocks, setStocks] = useState(null)
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
   <div className="App">
-    <h1> hello world </h1>
+    <Outlet />
   </div>
   )
 }

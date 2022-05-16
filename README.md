@@ -42,3 +42,5 @@ As a user, I want to see both general information on the market and on individua
 
 ### Stretch Goals (if applicable)
 - include second API for 'WallstreetBets' data to see current opinions on the market.
+- Sass styling
+- User AUTH

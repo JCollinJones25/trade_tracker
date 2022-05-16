@@ -11,9 +11,7 @@ const SearchContainer = () => {
     const handleSubmit = async (e) => {
       e.preventDefault()
       try{
-
         const apiKey = process.env.REACT_APP_API;
-
         const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${apiKey}`
 
         const response = await fetch(URL);

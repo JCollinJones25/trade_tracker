@@ -1,10 +1,13 @@
-import Search from './Search'
-
+import Search from "./Search";
 
 const Nav = () => {
-    return (
-        <Search/>
-    )
-}
+  return (
+    <div className="nav">
+      <div className="nav-search">
+        <Search />
+      </div>
+    </div>
+  );
+};
 
-export default Nav
+export default Nav;

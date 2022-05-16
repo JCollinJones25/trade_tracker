@@ -1,1 +1,37 @@
+body {
+  background-color: rgb(119, 102, 174);
+}
 
+.searchbar {
+    background-color: rgb(185, 185, 234);
+    color: purple;
+    font-size: 25px;
+}
+
+.result {
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(36, 3, 57);
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+
+  }
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(36, 3, 57);
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+  }
+
+  .nav .nav-search {
+      float: right;
+  }
+  

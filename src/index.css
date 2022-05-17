@@ -1,37 +1,67 @@
 body {
-  background-color: rgb(119, 102, 174);
+  background: linear-gradient(#0d2664, #3b48f2);
+  color: rgb(186, 182, 193);
+  text-align: center;
+}
+
+body > #root > div {
+  height: 100vh;
 }
 
 .searchbar {
-    background-color: rgb(185, 185, 234);
-    color: purple;
-    font-size: 25px;
-}
-
-.result {
-    color: white;
+  background-color: rgb(165, 179, 251);
+  color: rgb(19, 37, 101);
+  border-radius: 15px;
+  border-color:rgb(5, 13, 104);
+  font-size: 25px;
+  max-width: 500px;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(36, 3, 57);
-    color: white;
-    padding: 20px;
-    font-size: 2em;
-
-  }
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(2, 8, 71);
+  color: rgb(186, 182, 193);
+  padding: 20px;
+  font-size: 2em;
+}
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(36, 3, 57);
-    color: white;
-    padding: 20px;
-    font-size: 2em;
-  }
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(5, 13, 104);
+  color: rgb(186, 182, 193);
+  padding: 20px;
+  font-size: 2em;
+}
 
-  .nav .nav-search {
-      float: right;
-  }
-  
+.nav .nav-search {
+  float: right;
+}
+
+a {
+  color: rgb(186, 182, 193);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.stock-info {
+  background-color: rgb(51, 55, 76);
+  color: white;
+  margin: 50px;
+  margin-left: 15%;
+  border-radius: 15%;
+  border: solid;
+  max-width: 350px;
+  text-align: left;
+  padding: 15px;
+  display: block;
+}
+
+.stock-info h1 {
+  text-align: center;
+}
+
+.fetching {
+    margin-top: 100px;
+}

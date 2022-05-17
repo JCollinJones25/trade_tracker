@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import Search from "./Search"
-import Results from './Results'
+import { useNavigate } from 'react-router-dom'
 
 const SearchContainer = () => {
+
+    const navigate = useNavigate()
 
     const [searchState, setSearchState] = useState('')
 
@@ -18,6 +20,7 @@ const SearchContainer = () => {
         const data = await response.json();
         console.log(data)
         setStock(data.data);
+        navigate(`/${stock}`)
       } catch (error) {
         console.log(error)
       }
@@ -43,8 +46,6 @@ const SearchContainer = () => {
             onSubmit={handleSubmit}
             value={searchState}
           />
-          
-          <Results stock={stock}/>
         </>
       );
 }

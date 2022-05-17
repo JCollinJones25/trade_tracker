@@ -25,7 +25,7 @@ Click [here](https://www.stockdata.org/) to visit the API for StockData.org
 }
 
 ## Component hierarchy
-![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/public/images/components.png?raw=true)
+![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/public/images/comp-hierarchy.png?raw=true)
 
 ## Wire Frames
 ![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/public/images/wireframe.png?raw=true)

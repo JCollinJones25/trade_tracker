@@ -15,6 +15,8 @@ body > #root > div {
   border-color:rgb(5, 13, 104);
   font-size: 25px;
   max-width: 500px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .header {

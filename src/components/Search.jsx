@@ -7,7 +7,7 @@ const Search = (props) => {
               type="text"
               className="searchbar"
               name="search"
-              placeholder="Enter stock ticker"
+              placeholder="Enter any stock ticker"
               value={props.value}
               onChange={props.onChange}
             />

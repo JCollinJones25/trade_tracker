@@ -6,7 +6,7 @@ const Main = () => {
     <>
     <Header />
     <h1>Welcome to Trade Tracker</h1>
-    <h3>Search Current Stock Market Data</h3>  
+    <h3>Your Home For Simplified Stock Market Data</h3>  
     <SearchContainer />
     </>
   );

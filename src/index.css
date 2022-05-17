@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(#0d2664, #3b48f2);
+  background: linear-gradient(#141d32, #2a32a3);
   color: rgb(186, 182, 193);
   text-align: center;
 }
@@ -9,14 +9,19 @@ body > #root > div {
 }
 
 .searchbar {
-  background-color: rgb(165, 179, 251);
-  color: rgb(19, 37, 101);
+  background-color: rgb(65, 72, 107);
+  color: rgb(40, 107, 241);
   border-radius: 15px;
-  border-color:rgb(5, 13, 104);
+  border-color:rgb(40, 107, 241);
+  border-width: 5px;
   font-size: 25px;
   max-width: 500px;
   text-align: center;
   margin-top: 20px;
+}
+
+::placeholder {
+    color:rgb(40, 107, 241);
 }
 
 .header {

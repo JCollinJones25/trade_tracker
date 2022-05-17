@@ -25,10 +25,10 @@ Click [here](https://www.stockdata.org/) to visit the API for StockData.org
 }
 
 ## Component hierarchy
-![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/components.png?raw=true)
+![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/public/images/components.png?raw=true)
 
 ## Wire Frames
-![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/wireframe.png?raw=true)
+![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/public/images/wireframe.png?raw=true)
 
 ## User Stories
 As a user, I want to see current stock market data displayed so that I can research particular stock data.

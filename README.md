@@ -1,5 +1,5 @@
 ## Project 3 - Frontend React App
-# Stock Market Data - "Trade Tracker" 
+# Stock Market Data - "Trade Tracker" 📈
 
 ## Description 
 My app renders current stock market data to the user.

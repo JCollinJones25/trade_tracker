@@ -4,10 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const Stock = (props) => {
 
-  console.log(props + " props on Stock Page")
-
   const { stockId } = useParams()
-  console.log(stockId)
   const [stock, setStock] = useState(null);
 
   const getStocks = async () => {

@@ -3,10 +3,7 @@ import Search from "../components/Search";
 import Header from "../components/Header";
 import Nav from '../components/Nav'
 
-const Home = (props) => {
-
-    console.log(props.stock + " props on Home Page")
-
+const Home = () => {
   return (
     <>
       <Header />

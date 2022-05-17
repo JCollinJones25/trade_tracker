@@ -1,14 +1,19 @@
-import SearchContainer from "./SearchContainer";
-import Header from './Header'
+
+import { Routes, Route } from 'react-router-dom'
+import Home from '../pages/Home'
+import Stock from '../pages/Stock'
 
 const Main = () => {
-    return (
-    <>
-    <Header />
-    <h1>Welcome to Trade Tracker</h1>
-    <h3>Your Home For Simplified Stock Market Data</h3>  
-    <SearchContainer />
-    </>
+
+  return (
+    <main>
+      <Routes>
+        <Route path="/" 
+          element={<Home />} />
+        <Route path="/:stockId" 
+          element={<Stock />} />
+      </Routes>
+    </main>
   );
 };
 

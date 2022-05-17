@@ -1,53 +1,23 @@
-import { useState, useEffect } from "react";
-import Search from "./Search"
-import { useNavigate } from 'react-router-dom'
 
-const SearchContainer = () => {
+// import Search from "./Search"
 
-    const navigate = useNavigate()
+// const SearchContainer = (props) => {
 
-    const [searchState, setSearchState] = useState('')
+//   console.log(props + " props on SearchCont")
 
-    const [stock, setStock] = useState(null)
 
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      try{
-        const apiKey = process.env.REACT_APP_API;
-        const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stock}&api_token=${apiKey}`
-
-        const response = await fetch(URL)
-        const data = await response.json()
-        console.log(data)
-        setStock(data.data)
-        navigate(`/${stock}`)
-      } catch (error) {
-        console.log(error)
-      }
-    };
-  
-    useEffect(() => {
-      handleSubmit()
-    }, [])
   
 
-    function handleSearch(e) {
-        setSearchState(e.target.value)
-        setStock(e.target.value)
-        console.log(stock)
-      }
-      
-      console.log(searchState)
 
-      return (
-        <>
-          <Search
-            onChange={handleSearch}
-            onSubmit={handleSubmit}
-            value={searchState}
-          />
-        </>
-      )
-}
+//     return (
+//       <>
+//         <Search
+//           onChange={props.handleSearch}
+//           onSubmit={props.handleSubmit}
+//           value={props.searchState}
+//         />
+//       </>
+//     )
+// }
 
-export default SearchContainer
+// export default SearchContainer

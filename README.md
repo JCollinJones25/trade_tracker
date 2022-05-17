@@ -1,10 +1,13 @@
-## Project Description 
-My frontend react app will render current stock market data to the user.
+## Project 3 - Frontend React App
+# Stock Market Data - "Trade Tracker" 
+
+## Description 
+My app renders current stock market data to the user.
 
 ## Link to the API you plan to use
-Click [here](https://www.stockdata.org/)
+Click [here](https://www.stockdata.org/) to visit the API for StockData.org
 
-## Example data response you plan to use
+## Example JSON
 {
             "ticker": "TSLA",
             "name": "Tesla Inc",
@@ -21,7 +24,7 @@ Click [here](https://www.stockdata.org/)
             "market_cap": 731101265920
 }
 
-## Visual of your component hierarchy
+## Component hierarchy
 ![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/Screen%20Shot%202022-05-13%20at%204.09.07%20PM.png?raw=true)
 
 ## Wire Frames
@@ -42,5 +45,6 @@ As a user, I want to see both general information on the market and on individua
 
 ### Stretch Goals (if applicable)
 - include second API for 'WallstreetBets' data to see current opinions on the market.
+- Add stocks to a 'watch list' or 'favorites'
 - Sass styling
 - User AUTH

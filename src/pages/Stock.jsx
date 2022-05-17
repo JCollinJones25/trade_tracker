@@ -7,7 +7,7 @@ const Stock = (props) => {
   console.log(props + " props on Stock Page")
 
   const { stockId } = useParams()
-
+  console.log(stockId)
   const [stock, setStock] = useState(null);
 
   const getStocks = async () => {
@@ -26,8 +26,7 @@ const Stock = (props) => {
 
   useEffect(() => {
     getStocks();
-  }, []);
-
+  }, [stockId]);
 
   const loaded = () => {
     return (

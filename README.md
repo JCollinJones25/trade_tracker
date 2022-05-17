@@ -1,5 +1,5 @@
-## Project 3 - Frontend React App
-# Stock Market Data - "Trade Tracker" 📈
+# Project 3 - Frontend React App
+## Stock Market Data - "Trade Tracker" 📈
 
 ## Description 
 My app renders current stock market data to the user.
@@ -25,10 +25,10 @@ Click [here](https://www.stockdata.org/) to visit the API for StockData.org
 }
 
 ## Component hierarchy
-![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/Screen%20Shot%202022-05-13%20at%204.09.07%20PM.png?raw=true)
+![comp hierarchy](https://github.com/JCollinJones25/Project-3/blob/main/components.png?raw=true)
 
 ## Wire Frames
-![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/Screen%20Shot%202022-05-13%20at%204.14.19%20PM.png?raw=true)
+![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/wireframe.png?raw=true)
 
 ## User Stories
 As a user, I want to see current stock market data displayed so that I can research particular stock data.

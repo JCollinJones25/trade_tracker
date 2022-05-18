@@ -22,8 +22,17 @@ const Stock = (props) => {
       console.log(stock); 
       const prices = data.data
       console.log(prices)
-      console.log(data.data[0].date)
-      const price = prices.map((time, idx) =>(
+
+      let currentTime = []
+
+      for (let i = 0; i < 50; i++) {
+        currentTime.push(prices[i])
+        
+      }
+
+      console.log(currentTime)
+
+      const price = currentTime.map((time, idx) =>(
         {
           x: new Date(time.date),
           y: [prices[idx].data.open, prices[idx].data.high, prices[idx].data.low, prices[idx].data.close]
@@ -66,21 +75,28 @@ const chart = {
   },
 };
 
-
   const loaded = () => {
     return (
       <>
         <Nav />
         <div className="stock-page">
           <div className="stock-info">
+            <div className="ticker-price">
             <h1>{stock.ticker}</h1>
+            <h2>{stock.data.open}</h2>
+            </div>
+            <h1>{stock.date}</h1>
+            <div className="OHLC">
             <p>Open: ${stock.data.open}</p>
-            <p>Close: ${stock.data.close}</p>
             <p>High: ${stock.data.high}</p>
             <p>Low: ${stock.data.low}</p>
-          </div>
+            <p>Close: ${stock.data.close}</p>
+            </div>
+        <div className="chart">
+        <Chart options={chart.options} series={series} type="candlestick" width={700} height={320} />
         </div>
-        <Chart options={chart.options} series={series} type="candlestick" width={500} height={320} />
+        </div>
+        </div>
 
       </>
     );

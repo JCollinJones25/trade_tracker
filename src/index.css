@@ -1,86 +1,110 @@
 body {
-    background: linear-gradient(#141d32, #282f88);
-    color: white;
-    text-align: center;
-  }
-  
-  body > #root > div {
-    height: 100vh;
-  }
-  
-  .searchbar {
-    font-family: 'Share Tech', sans-serif;
-    background-color: rgb(30, 34, 50);
-    color: rgb(40, 107, 241);
-    border-radius: 15px;
-    border-color:rgb(40, 107, 241);
-    border-width: 2px;
-    font-size: 20px;
-    max-width: 500px;
-    text-align: center;
-    padding: 5px;
-  }
-  
-  ::placeholder {
-      color:rgb(40, 107, 241);
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #141d32;
-    color: white;
-    padding: 20px;
-    font-size: 2em;
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #141d32;
-    color: white;
-    padding: 20px;
-    font-size: 2em;
-  }
-  
-  .nav .nav-search {
-    float: right;
-  }
+  background: linear-gradient(#141d32, #282f88);
+  color: white;
+  text-align: center;
+}
 
-  
-  a {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  
-  .stock-info {
-    font-family: 'Share Tech', sans-serif;
-    background-color: rgb(30, 34, 50);
-    color: white;
-    margin: 50px;
-    margin-left: 15%;
-    border-radius: 15%;
-    border: solid;
-    max-width: 350px;
-    text-align: left;
-    padding: 15px;
-    display: block;
-  }
-  
-  .stock-info h1 {
-    text-align: center;
-  }
+body > #root > div {
+  height: 100vh;
+}
 
-  .stock-info h2 {
-    color: green;
-  }
-  
-  .stock-page {
-    display: inline;
-  
-  }
+.searchbar {
+  font-family: "Share Tech", sans-serif;
+  background-color: rgb(30, 34, 50);
+  color: rgb(40, 107, 241);
+  border-radius: 15px;
+  border-color: rgb(40, 107, 241);
+  border-width: 2px;
+  font-size: 20px;
+  max-width: 500px;
+  text-align: center;
+  padding: 5px;
+}
 
-  .fetching {
-      margin-top: 100px;
-  }
+::placeholder {
+  color: rgb(40, 107, 241);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #141d32;
+  color: white;
+  padding: 20px;
+  font-size: 2em;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #141d32;
+  color: white;
+  padding: 20px;
+  font-size: 2em;
+}
+
+.nav .nav-search {
+  float: right;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ticker-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ticker-price h1,
+.ticker-price h2 {
+  margin: 10px;
+}
+
+.ticker-price h2 {
+  font-size: 35px;
+}
+
+.stock-info {
+  font-family: "Share Tech", sans-serif;
+  background-color: rgb(30, 34, 50, 0.75);
+  color: white;
+  margin: auto;
+  margin-top: 35px;
+  border: solid;
+  max-width: 750px;
+  max-height: auto;
+  text-align: left;
+  padding: 15px;
+  display: block;
+  text-align: center;
+}
+
+.OHLC {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.chart {
+  display: flex;
+  align-self: center;
+  margin: auto;
+  color: black;
+}
+
+
+.stock-info h2 {
+  color: green;
+}
+
+.stock-page {
+  display: inline;
+}
+
+.fetching {
+  margin-top: 100px;
+}

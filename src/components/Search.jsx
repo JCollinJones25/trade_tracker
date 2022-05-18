@@ -15,8 +15,9 @@ const Search = (props) => {
         navigate(`/${stock}`);
     }
 
+    
     return (
-        <>
+      <>
           <form className="search-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -26,7 +27,7 @@ const Search = (props) => {
               placeholder="Enter any stock ticker"
               stock={props.stock}
               onChange={handleSearch}
-            />
+              />
           </form>
         </>
       );

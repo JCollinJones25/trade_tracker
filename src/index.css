@@ -4,13 +4,37 @@ body {
   text-align: center;
 }
 
+.home-text {
+  margin-top: 10%;
+}
+
+.stock-links {
+  font-family: "Share Tech", sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.stock-links-1 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-right: 25px;
+}
+.stock-links-2 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 25px;
+}
+
 body > #root > div {
   height: 100vh;
 }
 
 .searchbar {
   font-family: "Share Tech", sans-serif;
-  background-color: rgb(30, 34, 50);
+  background-color: rgb(15, 20, 40);
   color: rgb(40, 107, 241);
   border-radius: 15px;
   border-color: rgb(40, 107, 241);
@@ -28,7 +52,7 @@ body > #root > div {
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #141d32;
+  background-color: rgb(15, 20, 40);
   color: white;
   padding: 20px;
   font-size: 2em;
@@ -37,10 +61,10 @@ body > #root > div {
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: #141d32;
+  background-color: rgb(15, 20, 40);
   color: white;
   padding: 20px;
-  font-size: 2em;
+  font-size: 25px;
 }
 
 .nav .nav-search {
@@ -70,7 +94,7 @@ a {
 
 .stock-info {
   font-family: "Share Tech", sans-serif;
-  background-color: rgb(30, 34, 50, 0.75);
+  background-color: rgb(15, 20, 40);
   color: white;
   margin: auto;
   margin-top: 35px;

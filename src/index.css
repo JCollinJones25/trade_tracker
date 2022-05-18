@@ -1,74 +1,81 @@
 body {
-  background: linear-gradient(#141d32, #2a32a3);
-  color: rgb(186, 182, 193);
-  text-align: center;
-}
+    background: linear-gradient(#141d32, #282f88);
+    color: white;
+    text-align: center;
+  }
+  
+  body > #root > div {
+    height: 100vh;
+  }
+  
+  .searchbar {
+    font-family: 'Share Tech', sans-serif;
+    background-color: rgb(30, 34, 50);
+    color: rgb(40, 107, 241);
+    border-radius: 15px;
+    border-color:rgb(40, 107, 241);
+    border-width: 2px;
+    font-size: 20px;
+    max-width: 500px;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  ::placeholder {
+      color:rgb(40, 107, 241);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #141d32;
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #141d32;
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+  }
+  
+  .nav .nav-search {
+    float: right;
+  }
 
-body > #root > div {
-  height: 100vh;
-}
+  
+  a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  .stock-info {
+    font-family: 'Share Tech', sans-serif;
+    background-color: rgb(30, 34, 50);
+    color: white;
+    margin: 50px;
+    margin-left: 15%;
+    border-radius: 15%;
+    border: solid;
+    max-width: 350px;
+    text-align: left;
+    padding: 15px;
+    display: block;
+  }
+  
+  .stock-info h1 {
+    text-align: center;
+  }
 
-.searchbar {
-  background-color: rgb(65, 72, 107);
-  color: rgb(40, 107, 241);
-  border-radius: 15px;
-  border-color:rgb(40, 107, 241);
-  border-width: 5px;
-  font-size: 25px;
-  max-width: 500px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-::placeholder {
-    color:rgb(40, 107, 241);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(2, 8, 71);
-  color: rgb(186, 182, 193);
-  padding: 20px;
-  font-size: 2em;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(5, 13, 104);
-  color: rgb(186, 182, 193);
-  padding: 20px;
-  font-size: 2em;
-}
-
-.nav .nav-search {
-  float: right;
-}
-
-a {
-  color: rgb(186, 182, 193);
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.stock-info {
-  background-color: rgb(51, 55, 76);
-  color: white;
-  margin: 50px;
-  margin-left: 15%;
-  border-radius: 15%;
-  border: solid;
-  max-width: 350px;
-  text-align: left;
-  padding: 15px;
-  display: block;
-}
-
-.stock-info h1 {
-  text-align: center;
-}
-
-.fetching {
-    margin-top: 100px;
-}
+  .stock-info h2 {
+    color: green;
+  }
+  
+  .fetching {
+      margin-top: 100px;
+  }

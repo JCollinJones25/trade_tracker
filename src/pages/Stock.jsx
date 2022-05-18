@@ -32,11 +32,13 @@ const Stock = (props) => {
         <div className="stock-page">
           <div className="stock-info">
             <h1>{stock.ticker}</h1>
-            <h2>{stock.name}</h2>
-            <h3>${stock.price} per share</h3>
+            <h1>{stock.name}</h1>
+            <h2>${stock.price} per share</h2>
             <p>Market Cap: ${stock.market_cap}</p>
             <p>Day high: ${stock.day_high}</p>
             <p>Day low: ${stock.day_low}</p>
+            <p>Short: {stock.exchange_short}</p>
+            <p>Long: {stock.exchange_long}</p>
           </div>
         </div>
       </>

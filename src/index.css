@@ -76,6 +76,11 @@ body {
     color: green;
   }
   
+  .stock-page {
+    display: inline;
+  
+  }
+
   .fetching {
       margin-top: 100px;
   }

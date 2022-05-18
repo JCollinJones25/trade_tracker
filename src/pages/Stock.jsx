@@ -1,21 +1,36 @@
 import Nav from "../components/Nav";
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
+import Chart from 'react-apexcharts'
 
 const Stock = (props) => {
 
+  const [series, setSeries] = useState([{
+    data: []
+  }])
   const { stockId } = useParams()
   const [stock, setStock] = useState(null);
 
   const getStocks = async () => {
     try {
       const apiKey = process.env.REACT_APP_API;
-      const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stockId}&api_token=${apiKey}`;
+      const URL = `https://api.stockdata.org/v1/data/intraday?symbols=${stockId}&api_token=${apiKey}`;
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data)
       setStock(data.data[0])
-      console.log(stock);
+      console.log(stock); 
+      console.log(data.data); 
+      const price = data.data
+      const prices = data.data.map((time, idx) =>(
+        {
+          x: new Date(time.date),
+          y: [price.open, price.high, price.low, price.close]
+        }
+      ))
+      setSeries([{
+        data: prices,
+      }])
     } catch (error) {
       console.log(error);
     }
@@ -25,6 +40,32 @@ const Stock = (props) => {
     getStocks();
   }, [stockId]);
 
+const chart = {
+          
+  series: [{
+    data: []
+  }],
+  options: {
+    chart: {
+      type: 'candlestick',
+      height: 350
+    },
+    title: {
+      text: 'CandleStick Chart',
+      align: 'left'
+    },
+    xaxis: {
+      type: 'datetime'
+    },
+    yaxis: {
+      tooltip: {
+        enabled: true
+      }
+    }
+  },
+};
+
+
   const loaded = () => {
     return (
       <>
@@ -32,15 +73,14 @@ const Stock = (props) => {
         <div className="stock-page">
           <div className="stock-info">
             <h1>{stock.ticker}</h1>
-            <h1>{stock.name}</h1>
-            <h2>${stock.price} per share</h2>
-            <p>Market Cap: ${stock.market_cap}</p>
-            <p>Day high: ${stock.day_high}</p>
-            <p>Day low: ${stock.day_low}</p>
-            <p>Short: {stock.exchange_short}</p>
-            <p>Long: {stock.exchange_long}</p>
+            <p>Open: ${stock.data.open}</p>
+            <p>Close: ${stock.data.close}</p>
+            <p>High: ${stock.data.high}</p>
+            <p>Low: ${stock.data.low}</p>
           </div>
         </div>
+        <Chart options={chart.options} series={series} type="candlestick" width={500} height={320} />
+
       </>
     );
   };

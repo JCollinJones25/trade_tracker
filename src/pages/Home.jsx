@@ -11,11 +11,11 @@ const Home = () => {
         <h4>Your Home For Simplified Stock Market Data</h4>
         <div className="home-search"></div>
       </div>
-      <h4>
+      {/* <h4>
         Follow any of the links below to get started or search any stock ticker
-      </h4>
+      </h4> */}
       <Search />
-      <div className="stock-links">
+      {/* <div className="stock-links">
         <div className="stock-links-1">
           <Link to="/spy">S&P 500 ETF (SPY)</Link>
           <Link to="/aapl">Apple (AAPL)</Link>
@@ -30,7 +30,7 @@ const Home = () => {
           <Link to="/sbux">Starbucks Corp (SBUX)</Link>
           <Link to="/cost">Costco Wholesale (COST)</Link>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -46,13 +46,17 @@ body > #root > div {
 }
 
 .results {
-  max-width: 200px;
+  margin: auto;
+  display: flex;
+  max-width: 400px;
   max-height: 200px;
-  overflow-y: scroll;
   overflow-x: hidden;
-  background-color: white;
-  font-size: 15px;
   color: black;
+  text-align: left;
+  margin-top: 20px;
+  padding: 10px;
+  flex-direction: column;
+  align-self: center;
 }
 
 ::placeholder {

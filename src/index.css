@@ -93,12 +93,8 @@ a {
   display: flex;
   align-self: center;
   margin: auto;
+  max-width: 100%;
   color: black;
-}
-
-
-.stock-info h2 {
-  color: green;
 }
 
 .stock-page {
@@ -107,4 +103,12 @@ a {
 
 .fetching {
   margin-top: 100px;
+}
+
+.gains {
+  color: green;
+}
+
+.losses {
+  color: red;
 }

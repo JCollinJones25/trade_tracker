@@ -35,7 +35,7 @@ As a user, I want to see current stock market data displayed so that I can resea
 As a user, I want to see both general information on the market and on individual stocks. 
 
 
-### MVP Goals
+### MVP Goals ✅
 - Functional interactive features
 - Data from third party API
 - 4 Components
@@ -44,7 +44,6 @@ As a user, I want to see both general information on the market and on individua
 - Styling
 
 ### Stretch Goals (if applicable)
-- include second API for 'WallstreetBets' data to see current opinions on the market.
+- include API for a candlestick chart for each stock ✅
 - Add stocks to a 'watch list' or 'favorites'
-- Sass styling
 - User AUTH

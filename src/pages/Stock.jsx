@@ -20,16 +20,17 @@ const Stock = (props) => {
       console.log(data)
       setStock(data.data[0])
       console.log(stock); 
-      console.log(data.data); 
-      const price = data.data
-      const prices = data.data.map((time, idx) =>(
+      const prices = data.data
+      console.log(prices)
+      console.log(data.data[0].date)
+      const price = prices.map((time, idx) =>(
         {
           x: new Date(time.date),
-          y: [price.open, price.high, price.low, price.close]
+          y: [prices[idx].data.open, prices[idx].data.high, prices[idx].data.low, prices[idx].data.close]
         }
       ))
       setSeries([{
-        data: prices,
+        data: price,
       }])
     } catch (error) {
       console.log(error);

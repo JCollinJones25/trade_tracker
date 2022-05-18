@@ -24,15 +24,15 @@ const Stock = (props) => {
       const prices = data.data;
       console.log(prices);
 
-      let currentTime = [];
+      let hour = [];
 
       for (let i = 0; i < 100; i++) {
-        currentTime.push(prices[i]);
+        hour.push(prices[i]);
       }
 
-      console.log(currentTime);
+      console.log(hour);
 
-      const price = currentTime.map((time, idx) => ({
+      const price = hour.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,

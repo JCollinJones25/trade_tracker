@@ -1,19 +1,36 @@
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { useNavigate, Link } from 'react-router-dom'
 
 const Search = (props) => {
 
     const [stock, setStock] = useState(null)
+    const [searchState, setSearchState] = useState('')
+    const [results, setResults] = useState([])
     const navigate = useNavigate();
 
     function handleSearch(e) {
         setStock(e.target.value)
+        setSearchState(e.target.value)
+        console.log(searchState)
         }
         
     function handleSubmit(e) {
         e.preventDefault()
         navigate(`/${stock}`);
     }
+
+
+    const showResults = async (e) => {
+      const URL = `https://ticker-2e1ica8b9.now.sh/keyword/${searchState}`
+      const response = await fetch(URL);
+      const data = await response.json();
+      console.log(data);
+      data ? setResults(data) : setResults([])
+    }
+
+    useEffect(() => {
+      showResults()
+    }, [])
 
     
     return (
@@ -29,6 +46,15 @@ const Search = (props) => {
               onChange={handleSearch}
               />
           </form>
+          {results ? results.map((stock) => {
+            return (
+              // <div className="results"> 
+              <Link to={`/${stock.symbol}`}>
+                <p>{stock.symbol}, {stock.name}</p>
+              </Link>
+              // </div>
+             )
+          }) : <p>Loading...</p>}
         </>
       );
 }

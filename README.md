@@ -43,7 +43,10 @@ As a user, I want to see both general information on the market and on individua
 - React Router
 - Styling
 
-### Stretch Goals (if applicable)
+### Stretch Goals
 - include API for a candlestick chart for each stock ✅
+- another API for search bar to match ticker to stock name and show results
+- buttons to change the x axis on the graph to either 1HR, 1D, 1W.
+- stock's current price changes color between green and red depending on previous price.
 - Add stocks to a 'watch list' or 'favorites'
 - User AUTH

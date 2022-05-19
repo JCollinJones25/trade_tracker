@@ -11,7 +11,6 @@ const Search = (props) => {
     setStock(e.target.value);
     setSearchState(e.target.value);
     showResults(e)
-    console.log(searchState);
   }
 
   function handleSubmit(e) {
@@ -23,10 +22,7 @@ const Search = (props) => {
     const URL = `https://ticker-2e1ica8b9.now.sh/keyword/${searchState}`;
     const response = await fetch(URL);
     const data = await response.json();
-    console.log(data);
     setResults(data)
-    console.log(results[0].name + " first result name");
-    console.log(results)
   };
 
   useEffect(() => {

@@ -105,6 +105,7 @@ a {
 .stock-title {
   display: inline-block;
   flex-direction: row;
+  text-align: center;
 }
 
 .stock-title h1,
@@ -123,6 +124,7 @@ a {
   color: white;
   margin: auto;
   margin-top: 35px;
+  margin-bottom: 35px;
   border: solid;
   max-width: 750px;
   max-height: auto;
@@ -134,6 +136,8 @@ a {
 
 .stock-price-change {
   display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .OHLC {

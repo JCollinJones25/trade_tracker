@@ -19,7 +19,6 @@ const Stock = (props) => {
     fetch(URL)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setStockInfo(result.data[0]);
       });
   };
@@ -30,7 +29,6 @@ const Stock = (props) => {
       const URL = `https://api.stockdata.org/v1/data/intraday?symbols=${stockId}&api_token=${apiKey}`;
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(data);
       setStock(data.data[0]);
 
       // prices = a weeks worth of data
@@ -103,7 +101,7 @@ const Stock = (props) => {
   function invalidTicker() {
     return (
       <div className="error">
-        <h3>Error: Invalid stock ticker entered</h3>
+        <h3>ERROR: INVALID STOCK TICKER ENTERED</h3>
       </div>
     );
   }
@@ -114,7 +112,6 @@ const Stock = (props) => {
     const dateString = stock.date;
     const newDate = dateString.replace("T", " | ");
     const finalDate = newDate.replace(".000Z", "");
-    console.log(finalDate);
     return <h1>{finalDate}</h1>;
   }
   function laodingDate() {
@@ -133,7 +130,7 @@ const Stock = (props) => {
                 </h1>
               <div className="stock-price-change">
                 <div className={[ "currentPrice", stockInfo.price > stockInfo.day_open ? "gains" : stockInfo.day_open > stockInfo.price ? "losses" : "", ].join(" ")}>
-                <h2>${stock.data.open}</h2>
+                <h2>${stockInfo.price}</h2>
                 </div>
                 <div className={["dayChange", stockInfo.day_change > 0 ? "gains" : stockInfo.day_change < 0 ? "losses" : ""].join(" ")}>
                   <h2>({stockInfo.day_change}%)</h2>

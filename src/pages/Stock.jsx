@@ -1,4 +1,5 @@
 import Nav from "../components/Nav";
+import Buttons from '../components/Buttons'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
@@ -12,6 +13,10 @@ const Stock = (props) => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
+  const [prices, setPrices] = useState([])
+  const [hour, setHour] = useState([])
+  const [day, setDay] = useState([])
+  const [xAxis, setXAxis] = useState(hour)
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -34,21 +39,23 @@ const Stock = (props) => {
       setStock(data.data[0]);
 
       // prices = a weeks worth of data
-      const prices = data.data;
+      setPrices(data.data);
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      let hour = [];
+      let hourtimes = [];
       for (let i = 0; i < 50; i++) {
-        hour.push(prices[i]);
+        hourtimes.push(prices[i]);
       }
+      setHour(hourtimes)
 
       // another time range option
-      let day = [];
+      let daytimes = [];
       for (let i = 0; i < 380; i++) {
-        day.push(prices[i]);
+        daytimes.push(prices[i]);
       }
+      setDay(daytimes)
 
-      const price = hour.map((time, idx) => ({
+      const price = xAxis.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,
@@ -149,13 +156,17 @@ const Stock = (props) => {
               <p>Close: ${stock.data.close}</p>
             </div>
             <div className="chart">
-              <Chart
+              {xAxis !== [] ? <Chart
                 options={chart.options}
                 series={series}
                 type="candlestick"
                 width="100%"
                 height={320}
-              />
+              /> : <p>Loading chart</p>}
+              {/* <Buttons prices={prices} day={day} hour={hour}/>  */}
+              <button onClick={setXAxis(hour)}>HR</button>
+              <button onClick={setXAxis(day)}>D</button>
+              <button onClick={setXAxis(prices)}>WK</button>
             </div>
           </div>
         </div>

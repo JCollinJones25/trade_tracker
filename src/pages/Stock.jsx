@@ -19,27 +19,23 @@ const Stock = (props) => {
       const URL = `https://api.stockdata.org/v1/data/intraday?symbols=${stockId}&api_token=${apiKey}`;
       const response = await fetch(URL);
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       setStock(data.data[0]);
-      // console.log(stock);
-      // console.log(typeof(stock.date));
+
       // prices = a weeks worth of data
       const prices = data.data;
-      // console.log(prices);
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
       let hour = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 50; i++) {
         hour.push(prices[i]);
       }
-      // console.log(hour);
 
       // another time range option 
       let day = []
       for (let i = 0; i < 380; i++) {
         day.push(prices[i]);
       }
-      // console.log(day)
 
       const price = hour.map((time, idx) => ({
         x: new Date(time.date),
@@ -103,9 +99,18 @@ const Stock = (props) => {
 
   // replacing letters in data with 
   // empty string so date is more readable 
-    // const dateString =  stock.date
-    // const newDate = dateString.replace('T', " ")
-    // const finalDate = newDate.replace(".000Z", "")
+  function changeDate() {
+    const dateString =  stock.date
+    const newDate = dateString.replace('T', " | ")
+    const finalDate = newDate.replace(".000Z", "")
+    console.log(finalDate)
+    return (
+      <h1>{finalDate}</h1> 
+      )
+    }
+     function laodingDate() {
+       return <h1>Loading date...</h1>
+     }
 
   const loaded = () => {
     return (
@@ -119,16 +124,8 @@ const Stock = (props) => {
                 <h2>${stock.data.open}</h2>
               </div>
             </div>
-            {/* {function changeDate() {
-              const dateString =  stock.date
-              const newDate = dateString.replace('T', " ")
-              const finalDate = newDate.replace(".000Z", "")
-                return (
-                <h1>{finalDate}</h1> 
-                )
-              }
-            } */}
-            <h1>{stock.date}</h1>
+            {stock.date ? changeDate() : laodingDate()}
+            {/* <h1>{stock.date}</h1> */}
             <div className="OHLC">
               <p>Open: ${stock.data.open}</p>
               <p>High: ${stock.data.high}</p>

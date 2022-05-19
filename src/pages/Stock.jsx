@@ -137,7 +137,7 @@ const Stock = (props) => {
                 options={chart.options}
                 series={series}
                 type="candlestick"
-                width={750}
+                width='100%'
                 height={320}
               />
             </div>

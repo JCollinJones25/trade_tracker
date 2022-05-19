@@ -135,8 +135,22 @@ a {
   display: flex;
   align-self: center;
   margin: auto;
-  max-width: 100%;
+  width: 100%;
   color: black;
+}
+.chart div {
+  width: 100%;
+  margin: auto;
+}
+
+#apexchartswxab9ye {
+  width: 100%;
+  margin: auto;
+}
+
+#SvgjsSvg2612 {
+  width: 100%;
+  margin: auto;
 }
 
 .stock-page {

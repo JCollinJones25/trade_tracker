@@ -1,6 +1,6 @@
 import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Chart from "react-apexcharts";
 
 const Stock = (props) => {
@@ -11,6 +11,7 @@ const Stock = (props) => {
   ]);
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
+  const navigate = useNavigate()
 
   const getStocks = async () => {
     try {
@@ -22,6 +23,7 @@ const Stock = (props) => {
       setStock(data.data[0]);
       // console.log(stock);
       // console.log(typeof(stock.date));
+      // prices = a weeks worth of data
       const prices = data.data;
       // console.log(prices);
 
@@ -90,6 +92,15 @@ const Stock = (props) => {
     },
   };
 
+  // function for error message if stock is undefined
+  function invalidTicker() {
+        return (
+          <div className="error">
+          <h3>Error: Invalid stock ticker entered</h3>
+          </div>
+        )
+  }
+
   // replacing letters in data with 
   // empty string so date is more readable 
     // const dateString =  stock.date
@@ -141,9 +152,12 @@ const Stock = (props) => {
 
   const loading = () => {
     return (
+      <>
+      <Nav />
       <div className="fetching">
-        <h3>FETCHING DATA...</h3>
+        {stock === undefined ? invalidTicker() : <h3>FETCHING DATA...</h3>}
       </div>
+      </>
     );
   };
 

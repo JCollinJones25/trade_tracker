@@ -22,7 +22,7 @@ const Search = (props) => {
     const URL = `https://ticker-2e1ica8b9.now.sh/keyword/${searchState}`;
     const response = await fetch(URL);
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     data ? setResults(data) : setResults([]);
     // if (searchState ==="") {
       //   setResults([])

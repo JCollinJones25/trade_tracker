@@ -144,10 +144,18 @@ a {
   margin-top: 100px;
 }
 
+.fetching a {
+  color: red;
+}
+
 .gains {
   color: green;
 }
 
 .losses {
+  color: red;
+}
+
+.error {
   color: red;
 }

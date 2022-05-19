@@ -1,7 +1,11 @@
 body {
-  background: linear-gradient(#141d32, #282f88);
+  background: linear-gradient(0.25turn, #141d32, #282f88);
   color: white;
   text-align: center;
+}
+
+body > #root > div {
+  height: 100%;
 }
 
 .home-text {
@@ -26,10 +30,6 @@ body {
   flex-direction: column;
   text-align: left;
   margin-left: 25px;
-}
-
-body > #root > div {
-  height: 100vh;
 }
 
 .search {
@@ -147,6 +147,17 @@ a {
 .chart div {
   width: 100%;
   margin: auto;
+}
+
+.apexcharts-tooltip {
+  text-align: left;
+  max-width: 85px;
+}
+.apexcharts-xaxistooltip {
+  max-width: 50px;
+}
+.apexcharts-yaxistooltip {
+  max-width: 50px;
 }
 
 #apexchartswxab9ye {

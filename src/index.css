@@ -90,6 +90,12 @@ body > #root > div {
   float: right;
 }
 
+.nav .nav-search .results {
+  font-size: 15px;
+  max-width: 200px;
+  max-height: 40px;
+}
+
 a {
   color: white;
   text-decoration: none;

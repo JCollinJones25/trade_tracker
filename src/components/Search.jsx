@@ -10,6 +10,7 @@ const Search = (props) => {
   function handleSearch(e) {
     setStock(e.target.value);
     setSearchState(e.target.value);
+    showResults(e)
     console.log(searchState);
   }
 
@@ -23,12 +24,7 @@ const Search = (props) => {
     const response = await fetch(URL);
     const data = await response.json();
     console.log(data);
-    data ? setResults(data) : setResults([]);
-    // if (searchState ==="") {
-      //   setResults([])
-      // } else {
-        //   setResults(data)
-        // }
+    setResults(data)
     console.log(results[0].name + " first result name");
     console.log(results)
   };
@@ -38,7 +34,7 @@ const Search = (props) => {
   }, []);
 
   return (
-    <>
+    <div className="search">
       <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -67,7 +63,7 @@ const Search = (props) => {
           <p>Loading...</p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

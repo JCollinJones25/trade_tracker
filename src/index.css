@@ -32,6 +32,10 @@ body > #root > div {
   height: 100vh;
 }
 
+.search {
+  z-index: 10;
+}
+
 .searchbar {
   font-family: "Share Tech", sans-serif;
   background-color: rgb(15, 20, 40);

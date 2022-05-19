@@ -57,3 +57,7 @@ As a user, I want to see visual aids such as charts or graphs.
     - 4 total APIs
         - Graph and Search APIs have no limit
         - The two Stock info API's have the same endpoint with 100 daily use limit (with two for the same endpoint, that is cut in half)
+
+- As of now, if you type in "apple" instead of "aapl" and click enter, you are brought to an error page. "Apple" shoudld be able to direct you to /aapl the same way "aapl" does. The API that provides the search results which include both ticker and name could be useful for that. But for now, having those search results populate and choosing Apple/aapl is an okay solution.
+
+## Screenshots

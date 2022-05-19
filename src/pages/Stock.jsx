@@ -1,4 +1,5 @@
 import Nav from "../components/Nav";
+import Buttons from '../components/Buttons'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
@@ -156,6 +157,7 @@ const Stock = (props) => {
                 width="100%"
                 height={320}
               />
+              <Buttons /> 
             </div>
           </div>
         </div>

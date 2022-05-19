@@ -1,5 +1,4 @@
 import Nav from "../components/Nav";
-import Buttons from '../components/Buttons'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
@@ -144,9 +143,9 @@ const Stock = (props) => {
             {stock.date ? changeDate() : laodingDate()}
             <p>Market Cap: ${stockInfo.market_cap}</p>
             <div className="OHLC">
-              <p>Open: ${stock.data.open}</p>
-              <p>High: ${stock.data.high}</p>
-              <p>Low: ${stock.data.low}</p>
+              <p>Open: ${stockInfo.day_open}</p>
+              <p>High: ${stockInfo.day_high}</p>
+              <p>Low: ${stockInfo.day_low}</p>
               <p>Close: ${stock.data.close}</p>
             </div>
             <div className="chart">
@@ -157,7 +156,6 @@ const Stock = (props) => {
                 width="100%"
                 height={320}
               />
-              <Buttons /> 
             </div>
           </div>
         </div>

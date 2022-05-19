@@ -15,7 +15,7 @@ const Search = (props) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    navigate(`/${stock}`);
+    navigate(`/${stock}`)
   }
 
   const showResults = async (e) => {

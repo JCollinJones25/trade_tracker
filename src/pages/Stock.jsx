@@ -92,9 +92,9 @@ const Stock = (props) => {
 
   // replacing letters in data with 
   // empty string so date is more readable 
-  const dateString = stock.date
-  const newDate = dateString.replace('T', " ")
-  const finalDate = newDate.replace(".000Z", "")
+    // const dateString =  stock.date
+    // const newDate = dateString.replace('T', " ")
+    // const finalDate = newDate.replace(".000Z", "")
 
   const loaded = () => {
     return (
@@ -108,7 +108,16 @@ const Stock = (props) => {
                 <h2>${stock.data.open}</h2>
               </div>
             </div>
-            <h1>{finalDate}</h1>
+            {/* {function changeDate() {
+              const dateString =  stock.date
+              const newDate = dateString.replace('T', " ")
+              const finalDate = newDate.replace(".000Z", "")
+                return (
+                <h1>{finalDate}</h1> 
+                )
+              }
+            } */}
+            <h1>{stock.date}</h1>
             <div className="OHLC">
               <p>Open: ${stock.data.open}</p>
               <p>High: ${stock.data.high}</p>

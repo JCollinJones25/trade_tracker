@@ -93,9 +93,8 @@ a {
 }
 
 .ticker-price {
-  display: flex;
+  display: inline-block;
   flex-direction: row;
-  justify-content: center;
 }
 
 .ticker-price h1,
@@ -104,7 +103,7 @@ a {
 }
 
 .ticker-price h2 {
-  font-size: 35px;
+  font-size: 45px;
 }
 
 .stock-info {

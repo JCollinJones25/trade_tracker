@@ -115,7 +115,7 @@ const Stock = (props) => {
           <div className="stock-info">
             <div className="ticker-price">
               <h1>{stock.ticker}</h1>
-              <div className={[ "currentPrice", stock.data.close > stock.data.open ? "gains" : stock.data.open > stock.data.close ? "losses" : ""]}>
+              <div className={[ "currentPrice", stock.data.close > stock.data.open ? "gains" : stock.data.open > stock.data.close ? "losses" : ""].join(' ')}>
                 <h2>${stock.data.open}</h2>
               </div>
             </div>

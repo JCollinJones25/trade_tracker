@@ -1,6 +1,6 @@
 import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
 
 const Stock = (props) => {
@@ -11,7 +11,18 @@ const Stock = (props) => {
   ]);
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
-  const navigate = useNavigate()
+  const [stockInfo, setStockInfo] = useState(null);
+
+  const getStockInfo = async () => {
+    const apiKey = process.env.REACT_APP_API;
+    const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stockId}&api_token=${apiKey}`;
+    fetch(URL)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setStockInfo(result.data[0]);
+      });
+  };
 
   const getStocks = async () => {
     try {
@@ -31,8 +42,8 @@ const Stock = (props) => {
         hour.push(prices[i]);
       }
 
-      // another time range option 
-      let day = []
+      // another time range option
+      let day = [];
       for (let i = 0; i < 380; i++) {
         day.push(prices[i]);
       }
@@ -58,10 +69,10 @@ const Stock = (props) => {
 
   useEffect(() => {
     getStocks();
+    getStockInfo();
   }, [stockId]);
 
-
-// chart data
+  // chart data
   const chart = {
     series: [
       {
@@ -90,27 +101,25 @@ const Stock = (props) => {
 
   // function for error message if stock is undefined
   function invalidTicker() {
-        return (
-          <div className="error">
-          <h3>Error: Invalid stock ticker entered</h3>
-          </div>
-        )
+    return (
+      <div className="error">
+        <h3>Error: Invalid stock ticker entered</h3>
+      </div>
+    );
   }
 
-  // replacing letters in data with 
-  // empty string so date is more readable 
+  // replacing letters in data with
+  // empty string so date is more readable
   function changeDate() {
-    const dateString =  stock.date
-    const newDate = dateString.replace('T', " | ")
-    const finalDate = newDate.replace(".000Z", "")
-    console.log(finalDate)
-    return (
-      <h1>{finalDate}</h1> 
-      )
-    }
-     function laodingDate() {
-       return <h1>Loading date...</h1>
-     }
+    const dateString = stock.date;
+    const newDate = dateString.replace("T", " | ");
+    const finalDate = newDate.replace(".000Z", "");
+    console.log(finalDate);
+    return <h1>{finalDate}</h1>;
+  }
+  function laodingDate() {
+    return <h1>Loading date...</h1>;
+  }
 
   const loaded = () => {
     return (
@@ -118,14 +127,21 @@ const Stock = (props) => {
         <Nav />
         <div className="stock-page">
           <div className="stock-info">
-            <div className="ticker-price">
-              <h1>{stock.ticker}</h1>
-              <div className={[ "currentPrice", stock.data.close > stock.data.open ? "gains" : stock.data.open > stock.data.close ? "losses" : ""].join(' ')}>
+            <div className="stock-title">
+                <h1>
+                  {stock.ticker} {stockInfo.name}{" "}
+                </h1>
+              <div className="stock-price-change">
+                <div className={[ "currentPrice", stockInfo.price > stockInfo.day_open ? "gains" : stockInfo.day_open > stockInfo.price ? "losses" : "", ].join(" ")}>
                 <h2>${stock.data.open}</h2>
+                </div>
+                <div className={["dayChange", stockInfo.day_change > 0 ? "gains" : stockInfo.day_change < 0 ? "losses" : ""].join(" ")}>
+                  <h2>({stockInfo.day_change}%)</h2>
+              </div>
               </div>
             </div>
             {stock.date ? changeDate() : laodingDate()}
-            {/* <h1>{stock.date}</h1> */}
+            <p>Market Cap: ${stockInfo.market_cap}</p>
             <div className="OHLC">
               <p>Open: ${stock.data.open}</p>
               <p>High: ${stock.data.high}</p>
@@ -137,7 +153,7 @@ const Stock = (props) => {
                 options={chart.options}
                 series={series}
                 type="candlestick"
-                width='100%'
+                width="100%"
                 height={320}
               />
             </div>
@@ -150,10 +166,10 @@ const Stock = (props) => {
   const loading = () => {
     return (
       <>
-      <Nav />
-      <div className="fetching">
-        {stock === undefined ? invalidTicker() : <h3>FETCHING DATA...</h3>}
-      </div>
+        <Nav />
+        <div className="fetching">
+          {stock === undefined ? invalidTicker() : <h3>FETCHING DATA...</h3>}
+        </div>
       </>
     );
   };

@@ -102,18 +102,19 @@ a {
   text-transform: uppercase;
 }
 
-.ticker-price {
+.stock-title {
   display: inline-block;
   flex-direction: row;
 }
 
-.ticker-price h1,
-.ticker-price h2 {
+.stock-title h1,
+.stock-title h2 {
   margin: 10px;
 }
 
-.ticker-price h2 {
+.stock-title h2 {
   font-size: 45px;
+  margin: 10px;
 }
 
 .stock-info {
@@ -129,6 +130,10 @@ a {
   padding: 15px;
   display: block;
   text-align: center;
+}
+
+.stock-price-change {
+  display: flex;
 }
 
 .OHLC {
@@ -173,6 +178,7 @@ a {
 .stock-page {
   display: inline;
 }
+
 
 .fetching {
   margin-top: 100px;

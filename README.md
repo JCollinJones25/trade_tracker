@@ -31,8 +31,9 @@ Click [here](https://www.stockdata.org/) to visit the API for StockData.org
 ![wireframe](https://github.com/JCollinJones25/Project-3/blob/main/public/images/wireframe.png?raw=true)
 
 ## User Stories
-As a user, I want to see current stock market data displayed so that I can research particular stock data.
-As a user, I want to see both general information on the market and on individual stocks. 
+As a user, I want to see current stock market data.
+As a user, I want a user-friendly UI that is easy to navigate.
+As a user, I want to see visual aids such as charts or graphs.
 
 
 ### MVP Goals ✅
@@ -45,8 +46,14 @@ As a user, I want to see both general information on the market and on individua
 
 ### Stretch Goals
 - include API for a candlestick chart for each stock ✅
-- another API for search bar to match ticker to stock name and show results
+- another API for search bar to match ticker to stock name and show results ✅
+- stock's current price changes color between green and red depending on previous price ✅
 - buttons to change the x axis on the graph to either 1HR, 1D, 1W.
-- stock's current price changes color between green and red depending on previous price.
 - Add stocks to a 'watch list' or 'favorites'
 - User AUTH
+
+## Major Issues 
+- API usage does not last long 
+    - 4 total APIs
+        - Graph and Search APIs have no limit
+        - The two Stock info API's have the same endpoint with 100 daily use limit (with two for the same endpoint, that is cut in half)

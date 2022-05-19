@@ -22,15 +22,20 @@ const Search = (props) => {
     const URL = `https://ticker-2e1ica8b9.now.sh/keyword/${searchState}`;
     const response = await fetch(URL);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     data ? setResults(data) : setResults([]);
+    // if (searchState ==="") {
+      //   setResults([])
+      // } else {
+        //   setResults(data)
+        // }
     console.log(results[0].name + " first result name");
+    console.log(results)
   };
 
   useEffect(() => {
     showResults();
   }, []);
-
 
   return (
     <>
@@ -45,19 +50,23 @@ const Search = (props) => {
           onChange={handleSearch}
         />
       </form>
-      <div className='results'>
-        {results.map((stock, idx) => {
-          return (
-            <div className="result" key={idx}>
-            <Link to={`/${stock.symbol}`}>
-              <p>
-                {stock.symbol} - {stock.name}
-              </p>
-            </Link>
+      <div className="results">
+        {results ? (
+          results.map((stock, idx) => {
+            return (
+              <div className="result" key={idx}>
+                <Link to={`/${stock.symbol}`}>
+                  <p>
+                    {stock.symbol} - {stock.name}
+                  </p>
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-          );
-        })}
-        </div>
     </>
   );
 };

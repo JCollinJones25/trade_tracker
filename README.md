@@ -5,8 +5,10 @@
 My app displays current stock market data.
 
 ## Links
-Click [here](https://dashboard.heroku.com/apps/trade-tracker-stocks/settings) to visit the site.
-Click [here](https://www.stockdata.org/) to visit the API for StockData.org.
+- Click [here](https://dashboard.heroku.com/apps/trade-tracker-stocks/settings) to visit the site.
+- Click [here](https://www.stockdata.org/) to visit the API for StockData.org.
+- Click [here](https://tickersearch.surge.sh/) to visit the API for ticker search.
+- Click [here](https://apexcharts.com/react-chart-demos/candlestick-charts/category-x-axis/) to visit the API for Apex Charts.
 
 ## Example JSON
 {

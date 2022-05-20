@@ -25,15 +25,12 @@ body > #root > div {
   text-align: left;
   margin-right: 25px;
 }
+
 .stock-links-2 {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-left: 25px;
-}
-
-.search {
-  z-index: 10;
 }
 
 .searchbar {
@@ -61,7 +58,6 @@ body > #root > div {
   padding: 10px;
   flex-direction: column;
   align-self: center;
-  z-index: 10;
 }
 
 ::placeholder {
@@ -162,9 +158,11 @@ a {
   text-align: left;
   max-width: 85px;
 }
+
 .apexcharts-xaxistooltip {
   max-width: 50px;
 }
+
 .apexcharts-yaxistooltip {
   max-width: 50px;
 }
@@ -182,7 +180,6 @@ a {
 .stock-page {
   display: inline;
 }
-
 
 .fetching {
   margin-top: 100px;

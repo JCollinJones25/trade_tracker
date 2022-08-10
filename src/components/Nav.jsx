@@ -12,7 +12,9 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      <Link to="/">Back to Home Page</Link>
+      <div id="back-text">
+        <Link to="/">← Back to Home Page</Link>
+      </div>
 
       <div className="sidebar">
         <Hamburger 

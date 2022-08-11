@@ -284,6 +284,7 @@ a {
 
 
 @media only screen and (max-width: 600px) {
+  
   .header {
     font-size: 20px;
   }
@@ -296,11 +297,8 @@ a {
     font-size: 13px;
   }
 
-  .stock-info h1 {
-    font-size: 13px;
+  .stock-info h1, .stock-info h2 {
+    font-size: 17px;
   }
 
-  .stock-price-change {
-    font-size: 13px;
-  }
 }

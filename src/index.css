@@ -212,6 +212,10 @@ a {
   margin: auto;
 }
 
+.apexcharts-toolbar {
+  z-index: 1;
+}
+
 .apexcharts-tooltip {
   text-align: left;
   max-width: 85px;

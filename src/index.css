@@ -202,7 +202,7 @@ a {
   margin: auto;
   margin-top: 35px;
   margin-bottom: 35px;
-  border: solid;
+  border: 1px solid;
   max-width: 750px;
   max-height: auto;
   text-align: left;

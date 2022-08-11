@@ -18,6 +18,8 @@ const Nav = () => {
 
       <div className="sidebar">
         <Hamburger 
+          size={25}
+          distance="sm"
           onClick={showSidebar}
           toggled={sidebar}
           toggle={setSidebar}>
@@ -26,6 +28,8 @@ const Nav = () => {
           <ul className="nav-menu-items">
             <li className="navbar-toggle">
               <Hamburger
+                distance="sm"
+                size={25}
                 onClick={showSidebar}
                 toggled={sidebar}
                 toggle={setSidebar}

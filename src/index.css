@@ -232,8 +232,9 @@ a {
   margin: auto;
 }
 
-svg {
+svg, .apexcharts-toolbar {
   z-index: -1;
+  position: relative;
 }
 
 .apexcharts-tooltip {

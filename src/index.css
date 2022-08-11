@@ -296,11 +296,11 @@ a {
     font-size: 13px;
   }
 
-  .stock-title {
+  .stock-info h1 {
     font-size: 13px;
   }
 
   .stock-price-change {
-    font-size: 15px;
+    font-size: 13px;
   }
 }

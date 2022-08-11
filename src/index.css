@@ -83,10 +83,6 @@ nav .searchbar {
   align-self: center;
 }
 
-.nav-menu-items .results {
-  text-align: left;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -171,6 +167,8 @@ nav .searchbar {
   font-size: 15px;
   max-width: 200px;
   max-height: 500px;
+  margin-top: 5px;
+  text-align: left;
 }
 
 a {

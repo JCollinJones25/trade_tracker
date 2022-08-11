@@ -232,7 +232,7 @@ a {
   margin: auto;
 }
 
-.apexcharts-toolbar {
+svg {
   z-index: -1;
 }
 

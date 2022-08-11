@@ -288,7 +288,15 @@ a {
     font-size: 20px;
   }
 
+  .nav {
+    padding-right: 15px;
+  }
+
   .home-text {
     font-size: 13px;
+  }
+
+  .stock-info {
+    font-size: 15px;
   }
 }

@@ -1,3 +1,8 @@
+:root {
+  --navy: #0f1428;
+  --blue: #286bf1;
+}
+
 body {
   background: linear-gradient(0.25turn, #141d32, #282f88);
   color: white;
@@ -17,6 +22,7 @@ html, body {
 
 .home-text {
   margin-top: 10%;
+  font-size: 15px;
 }
 
 .stock-links {
@@ -42,42 +48,52 @@ html, body {
 
 .searchbar {
   font-family: "Share Tech", sans-serif;
-  background-color: rgb(15, 20, 40);
-  color: rgb(40, 107, 241);
-  border-radius: 15px;
-  border-color: rgb(40, 107, 241);
-  border-width: 2px;
-  font-size: 20px;
-  max-width: 500px;
-  text-align: center;
+  background-color: white;
+  color: var(--navy);
+  border-radius: 5px;
+  border-color: var(--blue);
+  border-width: 0.5px;
+  font-size: 17px;
+  width: 200px;
   padding: 5px;
+}
+
+::placeholder {
+  color: var(--navy);
+}
+
+main .searchbar {
+  margin-top: 20px;
+}
+
+nav .searchbar {
+  margin-top: 0;
 }
 
 .results {
   margin: auto;
   display: flex;
-  max-width: 400px;
-  max-height: 200px;
+  max-width: 500px;
+  max-height: 300px;
   overflow-x: hidden;
-  color: black;
-  text-align: left;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 30px;
   padding: 10px;
   flex-direction: column;
   align-self: center;
 }
 
-::placeholder {
-  color: rgb(40, 107, 241);
+.nav-menu-items .results {
+  text-align: left;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(15, 20, 40);
+  background-color: var(--navy);
   color: white;
   padding: 20px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #back-text {
@@ -88,14 +104,17 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f1428;
+  background-color: var(--navy);
   color: white;
-  padding: 20px;
-  font-size: 20px;
+  padding: 10px;
+}
+
+.nav a {
+  font-size: 15px;
 }
 
 .sidebar {
-  background-color: #0f1428;
+  background-color: var(--navy);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -104,16 +123,17 @@ html, body {
 } 
 
 .nav-menu {
-  background-color: #0f1428;
+  background-color: var(--navy);
   width: 250px;
   height: 100%;
   padding: 10px;
+  padding-top: 0;
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
   right: -100%;
-  transition: 850ms;
+  transition: 800ms;
 }
 
 .nav-menu-items {
@@ -132,7 +152,7 @@ html, body {
 }
 
 .navbar-toggle {
-  background-color: #0f1428;
+  background-color: var(--navy);
   width: 100%;
   height: 80px;
   display: flex;
@@ -174,7 +194,7 @@ a {
 
 .stock-info {
   font-family: "Share Tech", sans-serif;
-  background-color: rgb(15, 20, 40);
+  background-color: var(--navy);
   color: white;
   margin: auto;
   margin-top: 35px;
@@ -269,11 +289,7 @@ a {
     font-size: 20px;
   }
 
-  .nav {
-    font-size: 10px;
-  }
-
   .home-text {
-    font-size: 15px;
+    font-size: 13px;
   }
 }

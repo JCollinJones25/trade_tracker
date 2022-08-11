@@ -1,8 +1,7 @@
-# Project 3 - Frontend React App
-## Stock Market Data - "Trade Tracker" 📈 🚀
+# Trade Tracker 📈 🚀
 
-## Description 
-My app displays current stock market data.
+## Overview 
+Trade Tracker is a an app built using React which implements multiple API calls to display current stock market data.
 
 ## Links
 - Click [here](https://trade-tracker-stocks.herokuapp.com/) to visit the site.

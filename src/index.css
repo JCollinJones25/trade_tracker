@@ -297,8 +297,12 @@ a {
     font-size: 13px;
   }
 
-  .stock-info h1, .stock-info h2 {
+  .stock-info h1 {
     font-size: 25px;
+  }
+
+  .stock-info h2 {
+    font-size: 30px;
   }
 
 }

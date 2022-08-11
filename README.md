@@ -66,6 +66,6 @@ As a user, I want to see visual aids such as charts or graphs.
 
 ## Screenshots
 ![home screen](https://github.com/JCollinJones25/Project-3/blob/main/public/images/home-screen.png?raw=true)
-![home search](https://github.com/JCollinJones25/Project-3/blob/main/public/images/home-screen-search.png?raw=true)
 ![stock page](https://github.com/JCollinJones25/Project-3/blob/main/public/images/stock-page.png?raw=true)
+![search](https://github.com/JCollinJones25/Project-3/blob/main/public/images/search.png?raw=true)
 ![chart](https://github.com/JCollinJones25/Project-3/blob/main/public/images/chart.png?raw=true)

@@ -299,4 +299,8 @@ a {
   .stock-title {
     font-size: 13px;
   }
+
+  .stock-price-change {
+    font-size: 15px;
+  }
 }

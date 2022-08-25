@@ -165,7 +165,7 @@ const Stock = (props) => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined ? invalidTicker() : <h3>FETCHING DATA...</h3>}
+          {stock === undefined ? invalidTicker() :  <div className="spinner"></div>}
         </div>
       </>
     );

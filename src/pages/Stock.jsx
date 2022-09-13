@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
+import Buttons from "../components/Buttons";
 
 const Stock = (props) => {
   const [series, setSeries] = useState([
@@ -155,11 +156,7 @@ const Stock = (props) => {
                 height={320}
               />
             </div>
-            <div className="buttons">
-              <button onClick={setTimeRange(hour)}>HR</button>
-              <button onClick={setTimeRange(day)}>D</button>
-              <button onClick={setTimeRange(prices)}>WK</button>
-            </div>
+            <Buttons setTimeRange={setTimeRange} hour={hour} day={day} prices={prices}/>
           </div>
         </div>
       </>

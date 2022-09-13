@@ -42,9 +42,6 @@ const Stock = () => {
       for (let i = 0; i < prices.length; i++) {
         weekRange.push(prices[i]);
       }
-      setWeek(weekRange, () => {
-        console.log(week)
-      });
       console.log(weekRange)
       // console.log(week)
 
@@ -54,22 +51,25 @@ const Stock = () => {
         for (let i = 0; i < 50; i++) {
           hourRange.push(prices[i]);
         }
-        setHour(hourRange, () => {
-          console.log(hour)
-        })
         console.log(hourRange)
-        setTimeRange(hourRange)
-        
-        
+    
         // another time range option
         const dayRange = [];
         for (let i = 0; i < 380; i++) {
           dayRange.push(prices[i]);
         }
-        setDay(dayRange, () => {
-          console.log(day)
-        })
         console.log(dayRange)
+
+        const setTimes = () => {
+          setWeek(weekRange)
+          setHour(hourRange)
+          setDay(dayRange)
+          setTimeRange(hourRange)
+        }
+        useEffect(()=>{
+          setTimes()
+        }, [])
+
         console.log(timeRange)
         const price = timeRange.map((time, idx) => ({
           x: new Date(time.date),

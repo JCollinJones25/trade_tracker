@@ -12,6 +12,7 @@ const Stock = (props) => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
+  const [timeRange, setTimeRange] = useState(hour)
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -46,7 +47,7 @@ const Stock = (props) => {
         day.push(prices[i]);
       }
 
-      const price = hour.map((time, idx) => ({
+      const price = timeRange.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,
@@ -153,6 +154,11 @@ const Stock = (props) => {
                 width="100%"
                 height={320}
               />
+            </div>
+            <div className="buttons">
+              <button onClick={setTimeRange(hour)}>HR</button>
+              <button onClick={setTimeRange(day)}>D</button>
+              <button onClick={setTimeRange(prices)}>WK</button>
             </div>
           </div>
         </div>

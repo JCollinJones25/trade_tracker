@@ -18,8 +18,6 @@ const Stock = () => {
   const [week, setWeek] = useState([])
   const [timeRange, setTimeRange] = useState([]);
 
-
-
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
     const URL = `https://api.stockdata.org/v1/data/quote?symbols=${stockId}&api_token=${apiKey}`;
@@ -40,8 +38,8 @@ const Stock = () => {
       console.log(stock)
       // week = a weeks worth of data
       const weekRange = data.data
-      for (let i = 0; i < week.length; i++) {
-        weekRange.push(week[i]);
+      for (let i = 0; i < weekRange.length; i++) {
+        weekRange.push(weekRange[i]);
       }
       setWeek(weekRange);
       console.log(weekRange)
@@ -50,7 +48,7 @@ const Stock = () => {
       
         const hourRange = [];
         for (let i = 0; i < 50; i++) {
-          hourRange.push(week[i]);
+          hourRange.push(weekRange[i]);
         }
         setHour(hourRange)
         setTimeRange(hour)
@@ -59,7 +57,7 @@ const Stock = () => {
       // another time range option
       const dayRange = [];
       for (let i = 0; i < 380; i++) {
-        dayRange.push(week[i]);
+        dayRange.push(weekRange[i]);
       }
       setDay(dayRange)
       console.log(hour)

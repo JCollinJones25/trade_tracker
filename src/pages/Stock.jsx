@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
 // import Buttons from "../components/Buttons";
 
-const Stock = (props) => {
+const Stock = () => {
   const [series, setSeries] = useState([
     {
       data: [],
@@ -46,12 +46,14 @@ const Stock = (props) => {
       for (let i = 0; i < 50; i++) {
         hour.push(week[i]);
       }
+      setHour(hour)
 
       // another time range option
       // let day = [];
       for (let i = 0; i < 380; i++) {
         day.push(week[i]);
       }
+      setDay(day)
 
       const price = timeRange.map((time, idx) => ({
         x: new Date(time.date),

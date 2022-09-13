@@ -51,7 +51,7 @@ const Stock = () => {
           hourRange.push(weekRange[i]);
         }
         setHour(hourRange)
-        setTimeRange(hour)
+        setTimeRange(hourRange)
       
 
       // another time range option

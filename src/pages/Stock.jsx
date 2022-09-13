@@ -42,9 +42,11 @@ const Stock = () => {
       for (let i = 0; i < prices.length; i++) {
         weekRange.push(prices[i]);
       }
-      setWeek(weekRange);
+      setWeek(weekRange, () => {
+        console.log(week)
+      });
       console.log(weekRange)
-      console.log(week)
+      // console.log(week)
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
       
@@ -52,9 +54,10 @@ const Stock = () => {
         for (let i = 0; i < 50; i++) {
           hourRange.push(prices[i]);
         }
-        setHour(hourRange)
+        setHour(hourRange, () => {
+          console.log(hour)
+        })
         console.log(hourRange)
-        console.log(hour)
         setTimeRange(hourRange)
         
         
@@ -63,9 +66,10 @@ const Stock = () => {
         for (let i = 0; i < 380; i++) {
           dayRange.push(prices[i]);
         }
-        setDay(dayRange)
+        setDay(dayRange, () => {
+          console.log(day)
+        })
         console.log(dayRange)
-        console.log(day)
         console.log(timeRange)
         const price = timeRange.map((time, idx) => ({
           x: new Date(time.date),

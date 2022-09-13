@@ -44,6 +44,7 @@ const Stock = () => {
       }
       setWeek(weekRange);
       console.log(weekRange)
+      console.log(week)
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
       
@@ -53,6 +54,7 @@ const Stock = () => {
         }
         setHour(hourRange)
         console.log(hourRange)
+        console.log(hour)
         setTimeRange(hourRange)
         
         
@@ -62,7 +64,8 @@ const Stock = () => {
           dayRange.push(prices[i]);
         }
         setDay(dayRange)
-        console.log(hour)
+        console.log(dayRange)
+        console.log(day)
         console.log(timeRange)
         const price = timeRange.map((time, idx) => ({
           x: new Date(time.date),

@@ -36,10 +36,11 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
       console.log(stock)
+      const prices = data.data
       // week = a weeks worth of data
-      const weekRange = data.data
-      for (let i = 0; i < weekRange.length; i++) {
-        weekRange.push(weekRange[i]);
+      const weekRange = []
+      for (let i = 0; i < prices.length; i++) {
+        weekRange.push(prices[i]);
       }
       setWeek(weekRange);
       console.log(weekRange)
@@ -48,22 +49,23 @@ const Stock = () => {
       
         const hourRange = [];
         for (let i = 0; i < 50; i++) {
-          hourRange.push(weekRange[i]);
+          hourRange.push(prices[i]);
         }
         setHour(hourRange)
+        console.log(hourRange)
         setTimeRange(hourRange)
-      
-
-      // another time range option
-      const dayRange = [];
-      for (let i = 0; i < 380; i++) {
-        dayRange.push(weekRange[i]);
-      }
-      setDay(dayRange)
-      console.log(hour)
-      console.log(timeRange)
-      const price = timeRange.map((time, idx) => ({
-        x: new Date(time.date),
+        
+        
+        // another time range option
+        const dayRange = [];
+        for (let i = 0; i < 380; i++) {
+          dayRange.push(prices[i]);
+        }
+        setDay(dayRange)
+        console.log(hour)
+        console.log(timeRange)
+        const price = timeRange.map((time, idx) => ({
+          x: new Date(time.date),
         y: [
           week[idx].data.open,
           week[idx].data.high,

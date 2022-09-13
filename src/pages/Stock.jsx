@@ -16,7 +16,7 @@ const Stock = () => {
   const [hour, setHour] = useState([])
   const [day, setDay] = useState([])
   const [week, setWeek] = useState([])
-  const [timeRange, setTimeRange] = useState(hour);
+  const [timeRange, setTimeRange] = useState(null);
 
 
 
@@ -42,19 +42,19 @@ const Stock = () => {
       setWeek(data.data);
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      // let hour = [];
+      let hour = [];
       for (let i = 0; i < 50; i++) {
-        // hour.push(week[i]);
-        setHour(week[i])
+        hour.push(week[i]);
       }
+      setHour(hour)
 
       // another time range option
-      // let day = [];
+      let day = [];
       for (let i = 0; i < 380; i++) {
-        // day.push(week[i]);
-        setDay(week[i])
+        day.push(week[i]);
       }
-
+      setDay(day)
+      setTimeRange(hour)
       const price = timeRange.map((time, idx) => ({
         x: new Date(time.date),
         y: [

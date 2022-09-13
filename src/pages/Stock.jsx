@@ -37,7 +37,7 @@ const Stock = () => {
       const response = await fetch(URL);
       const data = await response.json();
       setStock(data.data[0]);
-
+      console.log(stock)
       // week = a weeks worth of data
       setWeek(data.data);
       console.log(week)

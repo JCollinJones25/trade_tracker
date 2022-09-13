@@ -66,9 +66,7 @@ const Stock = () => {
           setDay(dayRange)
           setTimeRange(hourRange)
         }
-        useEffect(()=>{
-          setTimes()
-        }, [])
+        setTimes()
 
         console.log(timeRange)
         const price = timeRange.map((time, idx) => ({

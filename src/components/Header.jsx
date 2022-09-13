@@ -5,7 +5,6 @@ const Header = () => {
             <div className="header-text">
             Trade Tracker
             </div>
-            <span className='bigger' onClick='openNav()'>☰</span>
         </div>
     )
 }

@@ -91,7 +91,7 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-  }, [stockId]);
+  }, [stockId, hour, week, day]);
 
   // chart data
   const chart = {

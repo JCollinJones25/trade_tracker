@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
-import Buttons from "../components/Buttons";
+// import Buttons from "../components/Buttons";
 
 const Stock = (props) => {
   const [series, setSeries] = useState([
@@ -13,7 +13,12 @@ const Stock = (props) => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  const [timeRange, setTimeRange] = useState(hour)
+  const [hour, setHour] = useState([])
+  const [day, setDay] = useState([])
+  const [week, setWeek] = useState([])
+  const [timeRange, setTimeRange] = useState(hour);
+
+
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -33,28 +38,28 @@ const Stock = (props) => {
       const data = await response.json();
       setStock(data.data[0]);
 
-      // prices = a weeks worth of data
-      const prices = data.data;
+      // week = a weeks worth of data
+      setWeek(data.data);
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      let hour = [];
+      // let hour = [];
       for (let i = 0; i < 50; i++) {
-        hour.push(prices[i]);
+        hour.push(week[i]);
       }
 
       // another time range option
-      let day = [];
+      // let day = [];
       for (let i = 0; i < 380; i++) {
-        day.push(prices[i]);
+        day.push(week[i]);
       }
 
       const price = timeRange.map((time, idx) => ({
         x: new Date(time.date),
         y: [
-          prices[idx].data.open,
-          prices[idx].data.high,
-          prices[idx].data.low,
-          prices[idx].data.close,
+          week[idx].data.open,
+          week[idx].data.high,
+          week[idx].data.low,
+          week[idx].data.close,
         ],
       }));
       setSeries([
@@ -156,7 +161,12 @@ const Stock = (props) => {
                 height={320}
               />
             </div>
-            <Buttons setTimeRange={setTimeRange} hour={hour} day={day} prices={prices}/>
+            {/* <Buttons hour={hour} day={day} week={week}/> */}
+            <div className="buttons">
+              <button onClick={setTimeRange(hour)}>HR</button>
+              <button onClick={setTimeRange(day)}>D</button>
+              <button onClick={setTimeRange(week)}>WK</button>
+            </div>
           </div>
         </div>
       </>

@@ -1,11 +1,13 @@
-const Buttons = (props) => {
-return (
-    <div className="buttons">
-        <button onClick={props.setTimeRange(props.hour)}>HR</button>
-        <button onClick={props.setTimeRange(props.day)}>D</button>
-        <button onClick={props.setTimeRange(props.prices)}>WK</button>
-    </div>
-    )
-}
+// const Buttons = (props) => {
+//   const [timeRange, setTimeRange] = useState(props.hour);
 
-export default Buttons
+//   return (
+//     <div className="buttons">
+//       <button onClick={setTimeRange(props.hour)}>HR</button>
+//       <button onClick={setTimeRange(props.day)}>D</button>
+//       <button onClick={setTimeRange(props.week)}>WK</button>
+//     </div>
+//   );
+// };
+
+// export default Buttons;

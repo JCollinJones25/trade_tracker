@@ -67,6 +67,7 @@ const Stock = () => {
           setTimeRange(hourRange)
         }
         setTimes()
+        console.log(setTimes)
 
         console.log(timeRange)
         const price = timeRange.map((time, idx) => ({

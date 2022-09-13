@@ -43,7 +43,7 @@ const Stock = () => {
       console.log(week)
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      {
+      
         let hour = [];
         for (let i = 0; i < 50; i++) {
           hour.push(week[i]);

@@ -60,13 +60,11 @@ const Stock = () => {
         }
         console.log(dayRange)
 
-        const setTimes = () => {
-          setWeek(weekRange)
-          setHour(hourRange)
-          setDay(dayRange)
-          setTimeRange(hourRange)
-        }
-        setTimes()
+        setWeek(weekRange)
+        setDay(dayRange)
+        setHour(hourRange)
+        setTimeRange(hourRange)
+        
         console.log(week)
         console.log(day)
         console.log(hour)

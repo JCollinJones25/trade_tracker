@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
-// import Buttons from "../components/Buttons";
+import Buttons from "../components/Buttons";
 
 const Stock = () => {
   const [series, setSeries] = useState([

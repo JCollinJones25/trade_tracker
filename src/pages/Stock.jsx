@@ -128,15 +128,10 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  const handleHour = () => {
-    setTime(hour)
+  const handleClick = (time) => {
+    setTime(time)
   }
-  const handleDay = () => {
-    setTime(day)
-  }
-  const handleWeek = () => {
-    setTime(week)
-  }
+  
 
   const loaded = () => {
     return (
@@ -176,9 +171,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={handleHour}>HR</button>
-              <button onClick={handleDay}>D</button>
-              <button onClick={handleWeek}>WK</button>
+              <button onClick={handleClick(hour)}>HR</button>
+              <button onClick={handleClick(day)}>D</button>
+              <button onClick={handleClick(week)}>WK</button>
             </div>
           </div>
         </div>

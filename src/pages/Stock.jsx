@@ -17,6 +17,7 @@ const Stock = () => {
   const [day, setDay] = useState([]);
   const [week, setWeek] = useState([]);
   const [timeRange, setTimeRange] = useState([]);
+  const [prices, setPrices] = useState([]);
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -24,7 +25,7 @@ const Stock = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((result) => {
-        setStockInfo(result.data[0]);
+      setStockInfo(result.data[0]);
       });
   };
 
@@ -36,7 +37,7 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
       console.log(stock);
-      const prices = data.data;
+      setPrices(data.data);
       // week = a weeks worth of data
       const weekRange = [];
       for (let i = 0; i < prices.length; i++) {
@@ -60,42 +61,41 @@ const Stock = () => {
       }
       console.log(dayRange);
 
-      setWeek({weekRange}, () => {
-        console.log(week);
-      });
-      setDay({dayRange}, () => {
-        console.log(day);
-      });
-      setHour({hourRange}, () => {
-        console.log(hour);
-      });
-      setTimeRange({hourRange}, () => {
-        console.log(timeRange);
-      });
+      setWeek(weekRange);
+      setDay(dayRange);
+      setHour(hourRange);
+      setTimeRange(hourRange);
 
-      const price = timeRange.map((time, idx) => ({
-        x: new Date(time.date),
-        y: [
-          prices[idx].data.open,
-          prices[idx].data.high,
-          prices[idx].data.low,
-          prices[idx].data.close,
-        ],
-      }));
-      setSeries([
-        {
-          data: price,
-        },
-      ]);
+      console.log(week);
+      console.log(day);
+      console.log(hour);
+      console.log(timeRange);
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     getStocks();
     getStockInfo();
   }, [stockId]);
+};
+
+const renderChart = async () => {
+  const price = await timeRange.map((time, idx) => ({
+    x: new Date(time.date),
+    y: [
+      prices[idx].data.open,
+      prices[idx].data.high,
+      prices[idx].data.low,
+      prices[idx].data.close,
+    ],
+  }));
+  setSeries([
+    {
+      data: price,
+    },
+  ]);
+  renderChart();
 
   // chart data
   const chart = {
@@ -201,9 +201,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} day={day} week={week}/> */}
             <div className="buttons">
-              <button onClick={setTimeRange(timeRange.hour)}>HR</button>
-              <button onClick={setTimeRange(timeRange.day)}>D</button>
-              <button onClick={setTimeRange(timeRange.week)}>WK</button>
+              <button onClick={setTimeRange(hour)}>HR</button>
+              <button onClick={setTimeRange(day)}>D</button>
+              <button onClick={setTimeRange(week)}>WK</button>
             </div>
           </div>
         </div>

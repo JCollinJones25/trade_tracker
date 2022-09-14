@@ -65,15 +65,9 @@ const Stock = () => {
       setHour(hourRange);
       setTimeRange(hourRange);
 
-      setTimeRange({
-        hour: hourRange,
-        day: dayRange,
-        week: weekRange,
-      });
-
-      console.log(timeRange.week);
-      console.log(timeRange.day);
-      console.log(timeRange.hour);
+      console.log(week);
+      console.log(day);
+      console.log(hour);
       console.log(timeRange);
       const price = timeRange.map((time, idx) => ({
         x: new Date(time.date),

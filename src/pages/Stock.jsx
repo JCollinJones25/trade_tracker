@@ -16,7 +16,7 @@ const Stock = () => {
   const [hour, setHour] = useState([])
   const [day, setDay] = useState([])
   const [week, setWeek] = useState([])
-  const [time, setTime] = useState(hour)
+  const [time, setTime] = useState([])
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -44,6 +44,7 @@ const Stock = () => {
       // hour
       for (let i = 0; i < 50; i++) {
         hour.push(prices[i]);
+        time.push(prices[i])
       }
 
       // day

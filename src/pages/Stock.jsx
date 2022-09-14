@@ -13,9 +13,9 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  // const [hour, setHour] = useState([])
-  // const [day, setDay] = useState([])
-  // const [week, setWeek] = useState([])
+  const [hour, setHour] = useState([])
+  const [day, setDay] = useState([])
+  const [week, setWeek] = useState([])
   const [time, setTime] = useState([])
 
   const getStockInfo = async () => {
@@ -36,31 +36,24 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
 
-      // prices = a weeks worth of data
+      // week (prices = a weeks worth of data)
       const prices = data.data;
-      function setWeek(){
-        for (let i = 0; i < prices.length; i++) {
-          time.push(prices[i]);
-        }
+      for (let i = 0; i < prices.length; i++) {
+        week.push(prices[i]);
+      }
+      // hour
+      for (let i = 0; i < 50; i++) {
+        hour.push(prices[i]);
       }
 
-      // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      let hour = [];
-      function setHour(){
-        for (let i = 0; i < 50; i++) {
-          hour.push(prices[i]);
-        }
+      // day
+      for (let i = 0; i < 380; i++) {
+        day.push(prices[i]);
       }
-      setHour()
-      // console.log(time)
 
-      // another time range option
-      // let day = [];
-      function setDay(){
-        for (let i = 0; i < 380; i++) {
-          time.push(prices[i]);
-        }
-      }
+      console.log(hour)
+      console.log(day)
+      console.log(week)
 
       const price = hour.map((time, idx) => ({
         x: new Date(time.date),
@@ -86,7 +79,7 @@ const Stock = () => {
     getStockInfo();
   }, [stockId]);
 
-  // chart data
+  // chart options
   const chart = {
     series: [
       {
@@ -170,7 +163,7 @@ const Stock = () => {
                 height={320}
               />
             </div>
-            <Buttons getStocks={getStocks}/>
+            <Buttons hour={hour} week={week} day={day}/>
           </div>
         </div>
       </>

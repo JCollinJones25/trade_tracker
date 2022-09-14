@@ -1,6 +1,6 @@
 const Buttons = (props) => {
 
-    // console.log(props)
+    console.log(props)
 //   const [timeRange, setTimeRange] = useState(props.hour);
 
   return (

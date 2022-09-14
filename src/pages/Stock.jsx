@@ -166,9 +166,9 @@ const Stock = () => {
               />
             </div>
             <div className="buttons">
-              <button onClick={setTimeRange(hour)}>HR</button>
-              <button onClick={setTimeRange(day)}>D</button>
-              <button onClick={setTimeRange(week)}>WK</button>
+              <button onClick={setTime(hour)}>HR</button>
+              <button onClick={setTime(day)}>D</button>
+              <button onClick={setTime(week)}>WK</button>
             </div>
           </div>
         </div>

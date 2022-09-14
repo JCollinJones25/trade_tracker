@@ -2,7 +2,6 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
-// import Buttons from "../components/Buttons";
 
 const Stock = () => {
   const [series, setSeries] = useState([
@@ -13,14 +12,6 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  // const [hour, setHour] = useState([])
-  // const [day, setDay] = useState([])
-  // const [week, setWeek] = useState([])
-  const [timeRange, setTimeRange] = useState({
-    hour: [],
-    day: [],
-    week: []
-  });
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -39,47 +30,23 @@ const Stock = () => {
       const response = await fetch(URL);
       const data = await response.json();
       setStock(data.data[0]);
-      console.log(stock)
-      const prices = data.data
-      // week = a weeks worth of data
-      const weekRange = []
-      for (let i = 0; i < prices.length; i++) {
-        weekRange.push(prices[i]);
-      }
-      console.log(weekRange)
-      // console.log(week)
+
+      // prices = a weeks worth of data
+      const prices = data.data;
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      
-        const hourRange = [];
-        for (let i = 0; i < 50; i++) {
-          hourRange.push(prices[i]);
-        }
-        console.log(hourRange)
-    
-        // another time range option
-        const dayRange = [];
-        for (let i = 0; i < 380; i++) {
-          dayRange.push(prices[i]);
-        }
-        console.log(dayRange)
+      let hour = [];
+      for (let i = 0; i < 50; i++) {
+        hour.push(prices[i]);
+      }
 
-        // setWeek(weekRange)
-        // setDay(dayRange)
-        // setHour(hourRange)
-        // setTimeRange(hourRange)
+      // another time range option
+      let day = [];
+      for (let i = 0; i < 380; i++) {
+        day.push(prices[i]);
+      }
 
-        setTimeRange({
-          hour: hourRange,
-          day: dayRange,
-          week: weekRange
-        })
-        
-        console.log(timeRange.week)
-        console.log(timeRange.day)
-        console.log(timeRange.hour)
-        console.log(timeRange)
-        const price = timeRange.hour.map((time, idx) => ({
+      const price = hour.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,
@@ -186,12 +153,6 @@ const Stock = () => {
                 width="100%"
                 height={320}
               />
-            </div>
-            {/* <Buttons hour={hour} day={day} week={week}/> */}
-            <div className="buttons">
-              <button onClick={setTimeRange(timeRange.hour)}>HR</button>
-              <button onClick={setTimeRange(timeRange.day)}>D</button>
-              <button onClick={setTimeRange(timeRange.week)}>WK</button>
             </div>
           </div>
         </div>

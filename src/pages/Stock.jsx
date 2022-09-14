@@ -80,9 +80,9 @@ const Stock = () => {
     getStockInfo();
   }, [stockId]);
   
-  // useEffect(() => {
-  //   handleClick();
-  // }, [time])
+  useEffect(() => {
+    handleClick();
+  }, [time])
 
   // chart options
   const chart = {

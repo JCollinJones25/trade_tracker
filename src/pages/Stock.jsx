@@ -133,7 +133,7 @@ const Stock = () => {
   }
 
   useEffect(() => {
-    handleClick;
+    handleClick();
   }, [])
   
 

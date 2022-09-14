@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
-import Buttons from "../components/Buttons";
+// import Buttons from "../components/Buttons";
 
 const Stock = () => {
   const [series, setSeries] = useState([
@@ -16,7 +16,7 @@ const Stock = () => {
   const [hour, setHour] = useState([])
   const [day, setDay] = useState([])
   const [week, setWeek] = useState([])
-  const [time, setTime] = useState([])
+  const [time, setTime] = useState(hour)
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -55,7 +55,7 @@ const Stock = () => {
       console.log(day)
       console.log(week)
 
-      const price = hour.map((time, idx) => ({
+      const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,
@@ -163,7 +163,12 @@ const Stock = () => {
                 height={320}
               />
             </div>
-            <Buttons hour={hour} week={week} day={day}/>
+            {/* <Buttons hour={hour} week={week} day={day}/> */}
+            <div className="buttons">
+              <button onClick={setTime(hour)}>HR</button>
+              <button onClick={setTime(day)}>D</button>
+              <button onClick={setTime(week)}>WK</button>
+            </div>
           </div>
         </div>
       </>

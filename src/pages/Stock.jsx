@@ -80,10 +80,6 @@ const Stock = () => {
     getStockInfo();
   }, [stockId]);
   
-  // useEffect(() => {
-  //   handleClick();
-  // }, [time])
-
   // chart options
   const chart = {
     series: [
@@ -174,7 +170,10 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={() => setTime(hour)}>HR</button>
+              <button onClick={() => {
+                setTime(hour);
+                console.log("hour pressed")
+              }}>HR</button>
               <button onClick={() => setTime(day)}>D</button>
               <button onClick={() => setTime(week)}>WK</button>
             </div>

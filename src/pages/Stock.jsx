@@ -170,18 +170,18 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={() => {
-                setTime(hour),
+              <button onClick={useEffect(() => {
+                setTime(hour)
                 console.log(time)
-              }}>HR</button>
-              <button onClick={() => {
-                setTime(day),
+              }, [time])}>HR</button>
+              <button onClick={useEffect(() => {
+                setTime(day)
                 console.log(time)
-                }}>D</button>
-              <button onClick={() => {
-                setTime(week),
+                }, [time])}>D</button>
+              <button onClick={useEffect(() => {
+                setTime(week)
                 console.log(time)
-              }}>WK</button>
+              }, [time])}>WK</button>
             </div>
           </div>
         </div>

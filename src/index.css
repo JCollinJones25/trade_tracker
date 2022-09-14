@@ -328,6 +328,11 @@ a {
   color: white;
 }
 
+.buttons button:checked {
+  background-color: #141d32;
+  border-color: lightgray;
+}
+
 
 @media only screen and (max-width: 600px) {
 

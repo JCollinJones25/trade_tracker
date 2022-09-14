@@ -172,15 +172,15 @@ const Stock = () => {
             <div className="buttons">
               <button onClick={() => {
                 setTime(hour)
-                console.log(hour)
+                console.log(time)
               }}>HR</button>
               <button onClick={() => {
                 setTime(day)
-                console.log(day)
+                console.log(time)
                 }}>D</button>
               <button onClick={() => {
                 setTime(week)
-                console.log(week)
+                console.log(time)
               }}>WK</button>
             </div>
           </div>

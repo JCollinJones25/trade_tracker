@@ -329,7 +329,7 @@ a {
 }
 
 button:hover {
-  background-color: var(--blue);
+  background-color: var(--blue, 0.5);
 }
 
 button:active {

@@ -78,7 +78,8 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-  }, [stockId]);
+    handleClick()
+  }, [stockId, time]);
 
   // chart options
   const chart = {

@@ -16,7 +16,7 @@ const Stock = () => {
   const [hour, setHour] = useState([])
   const [day, setDay] = useState([])
   const [week, setWeek] = useState([])
-  const [time, setTime] = useState(hour)
+  const [time, setTime] = useState([])
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -80,9 +80,9 @@ const Stock = () => {
     getStockInfo();
   }, [stockId]);
   
-  useEffect(() => {
-    handleClick();
-  }, [time])
+  // useEffect(() => {
+  //   handleClick();
+  // }, [time])
 
   // chart options
   const chart = {
@@ -132,9 +132,9 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  const handleClick = (time) => {
-    setTime(time)
-  }
+  // const handleClick = (time) => {
+  //   setTime(time)
+  // }
   
   const loaded = () => {
     return (
@@ -174,9 +174,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={() => handleClick(hour)}>HR</button>
-              <button onClick={() => handleClick(day)}>D</button>
-              <button onClick={() => handleClick(week)}>WK</button>
+              <button onClick={() => setTime(hour)}>HR</button>
+              <button onClick={() => setTime(day)}>D</button>
+              <button onClick={() => setTime(week)}>WK</button>
             </div>
           </div>
         </div>

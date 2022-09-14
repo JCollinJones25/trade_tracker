@@ -45,14 +45,14 @@ const Stock = () => {
       }
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      // let hour = [];
+      let hour = [];
       function setHour(){
         for (let i = 0; i < 50; i++) {
-          time.push(prices[i]);
+          hour.push(prices[i]);
         }
       }
       setHour()
-      console.log(time)
+      // console.log(time)
 
       // another time range option
       // let day = [];
@@ -62,7 +62,7 @@ const Stock = () => {
         }
       }
 
-      const price = time.map((time, idx) => ({
+      const price = hour.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,

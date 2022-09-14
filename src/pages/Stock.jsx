@@ -128,9 +128,13 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  // const handleClick = (time) => {
-  //   setTime(time)
-  // }
+  const handleClick = (time) => {
+    setTime(time)
+  }
+
+  useEffect(() => {
+    handleClick;
+  }, [time])
   
   const loaded = () => {
     return (
@@ -170,18 +174,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={useEffect(() => {
-                setTime(hour)
-                console.log(time)
-              }, [time])}>HR</button>
-              <button onClick={useEffect(() => {
-                setTime(day)
-                console.log(time)
-                }, [time])}>D</button>
-              <button onClick={useEffect(() => {
-                setTime(week)
-                console.log(time)
-              }, [time])}>WK</button>
+              <button onClick={() => {handleClick(hour)}}>HR</button>
+              <button onClick={() => {handleClick(day)}}>D</button>
+              <button onClick={() => {handleClick(week)}}>WK</button>
             </div>
           </div>
         </div>

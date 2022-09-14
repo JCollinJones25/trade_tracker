@@ -82,10 +82,10 @@ const Stock = () => {
         const price = timeRange.hour.map((time, idx) => ({
         x: new Date(time.date),
         y: [
-          week[idx].data.open,
-          week[idx].data.high,
-          week[idx].data.low,
-          week[idx].data.close,
+          prices[idx].data.open,
+          prices[idx].data.high,
+          prices[idx].data.low,
+          prices[idx].data.close,
         ],
       }));
       setSeries([

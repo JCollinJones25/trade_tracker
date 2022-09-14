@@ -170,11 +170,7 @@ const Stock = () => {
                 height={320}
               />
             </div>
-            <div className="buttons">
-              <button onClick={setHour()}>HR</button>
-              <button onClick={setDay()}>D</button>
-              <button onClick={setWeek()}>WK</button>
-            </div>
+            <Buttons getStocks={getStocks}/>
           </div>
         </div>
       </>

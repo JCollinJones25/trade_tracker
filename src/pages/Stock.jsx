@@ -13,11 +13,10 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  const [hour, setHour] = useState([]);
-  const [day, setDay] = useState([]);
-  const [week, setWeek] = useState([]);
-  const [timeRange, setTimeRange] = useState([]);
-  const [prices, setPrices] = useState([]);
+  const [hour, setHour] = useState([])
+  const [day, setDay] = useState([])
+  const [week, setWeek] = useState([])
+  const [time, setTime] = useState([])
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -25,7 +24,7 @@ const Stock = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((result) => {
-      setStockInfo(result.data[0]);
+        setStockInfo(result.data[0]);
       });
   };
 
@@ -36,66 +35,46 @@ const Stock = () => {
       const response = await fetch(URL);
       const data = await response.json();
       setStock(data.data[0]);
-      console.log(stock);
-      setPrices(data.data);
-      // week = a weeks worth of data
-      const weekRange = [];
-      for (let i = 0; i < prices.length; i++) {
-        weekRange.push(prices[i]);
-      }
-      console.log(weekRange);
-      // console.log(week)
+
+      // prices = a weeks worth of data
+      const prices = data.data;
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-
-      const hourRange = [];
+      // let hour = [];
       for (let i = 0; i < 50; i++) {
-        hourRange.push(prices[i]);
+        hour.push(prices[i]);
       }
-      console.log(hourRange);
+      setTime(hour)
 
       // another time range option
-      const dayRange = [];
+      // let day = [];
       for (let i = 0; i < 380; i++) {
-        dayRange.push(prices[i]);
+        day.push(prices[i]);
       }
-      console.log(dayRange);
 
-      setWeek(weekRange);
-      setDay(dayRange);
-      setHour(hourRange);
-      setTimeRange(hourRange);
-
-      console.log(week);
-      console.log(day);
-      console.log(hour);
-      console.log(timeRange);
+      const price = time.map((time, idx) => ({
+        x: new Date(time.date),
+        y: [
+          prices[idx].data.open,
+          prices[idx].data.high,
+          prices[idx].data.low,
+          prices[idx].data.close,
+        ],
+      }));
+      setSeries([
+        {
+          data: price,
+        },
+      ]);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getStocks();
     getStockInfo();
   }, [stockId]);
-};
-
-const renderChart = async () => {
-  const price = await timeRange.map((time, idx) => ({
-    x: new Date(time.date),
-    y: [
-      prices[idx].data.open,
-      prices[idx].data.high,
-      prices[idx].data.low,
-      prices[idx].data.close,
-    ],
-  }));
-  setSeries([
-    {
-      data: price,
-    },
-  ]);
-  renderChart();
 
   // chart data
   const chart = {
@@ -152,34 +131,16 @@ const renderChart = async () => {
         <div className="stock-page">
           <div className="stock-info">
             <div className="stock-title">
-              <h1>
-                {stock.ticker} {stockInfo.name}{" "}
-              </h1>
+                <h1>
+                  {stock.ticker} {stockInfo.name}{" "}
+                </h1>
               <div className="stock-price-change">
-                <div
-                  className={[
-                    "currentPrice",
-                    stockInfo.price > stockInfo.day_open
-                      ? "gains"
-                      : stockInfo.day_open > stockInfo.price
-                      ? "losses"
-                      : "",
-                  ].join(" ")}
-                >
-                  <h2>${stockInfo.price}</h2>
+                <div className={[ "currentPrice", stockInfo.price > stockInfo.day_open ? "gains" : stockInfo.day_open > stockInfo.price ? "losses" : "", ].join(" ")}>
+                <h2>${stockInfo.price}</h2>
                 </div>
-                <div
-                  className={[
-                    "dayChange",
-                    stockInfo.day_change > 0
-                      ? "gains"
-                      : stockInfo.day_change < 0
-                      ? "losses"
-                      : "",
-                  ].join(" ")}
-                >
+                <div className={["dayChange", stockInfo.day_change > 0 ? "gains" : stockInfo.day_change < 0 ? "losses" : ""].join(" ")}>
                   <h2>({stockInfo.day_change}%)</h2>
-                </div>
+              </div>
               </div>
             </div>
             {stock.date ? changeDate() : laodingDate()}
@@ -199,7 +160,6 @@ const renderChart = async () => {
                 height={320}
               />
             </div>
-            {/* <Buttons hour={hour} day={day} week={week}/> */}
             <div className="buttons">
               <button onClick={setTimeRange(hour)}>HR</button>
               <button onClick={setTimeRange(day)}>D</button>
@@ -216,11 +176,7 @@ const renderChart = async () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined ? (
-            invalidTicker()
-          ) : (
-            <div className="spinner"></div>
-          )}
+          {stock === undefined ? invalidTicker() :  <div className="spinner"></div>}
         </div>
       </>
     );

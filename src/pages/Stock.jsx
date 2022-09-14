@@ -54,7 +54,7 @@ const Stock = () => {
       console.log(hour)
       console.log(day)
       console.log(week)
-
+      console.log(time)
       const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [
@@ -77,7 +77,6 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-    setTime();
   }, [stockId]);
 
   // chart options

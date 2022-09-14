@@ -13,9 +13,9 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  const [hour, setHour] = useState([])
-  const [day, setDay] = useState([])
-  const [week, setWeek] = useState([])
+  // const [hour, setHour] = useState([])
+  // const [day, setDay] = useState([])
+  // const [week, setWeek] = useState([])
   const [time, setTime] = useState([])
 
   const getStockInfo = async () => {
@@ -38,24 +38,29 @@ const Stock = () => {
 
       // prices = a weeks worth of data
       const prices = data.data;
-      setWeek(prices)
-      console.log(week)
+      function setWeek(){
+        for (let i = 0; i < prices.length; i++) {
+          time.push(prices[i]);
+        }
+      }
 
       // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
       // let hour = [];
-      for (let i = 0; i < 50; i++) {
-        hour.push(prices[i]);
+      function setHour(){
+        for (let i = 0; i < 50; i++) {
+          time.push(prices[i]);
+        }
       }
-      setTime(hour)
-      console.log(hour)
+      setHour()
       console.log(time)
 
       // another time range option
       // let day = [];
-      for (let i = 0; i < 380; i++) {
-        day.push(prices[i]);
+      function setDay(){
+        for (let i = 0; i < 380; i++) {
+          time.push(prices[i]);
+        }
       }
-      console.log(day)
 
       const price = time.map((time, idx) => ({
         x: new Date(time.date),
@@ -166,9 +171,9 @@ const Stock = () => {
               />
             </div>
             <div className="buttons">
-              <button onClick={setTime(hour)}>HR</button>
-              <button onClick={setTime(day)}>D</button>
-              <button onClick={setTime(week)}>WK</button>
+              <button onClick={setHour()}>HR</button>
+              <button onClick={setDay()}>D</button>
+              <button onClick={setWeek()}>WK</button>
             </div>
           </div>
         </div>

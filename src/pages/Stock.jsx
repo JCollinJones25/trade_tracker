@@ -171,11 +171,17 @@ const Stock = () => {
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
               <button onClick={() => {
-                setTime(hour);
-                console.log("hour pressed")
+                setTime(hour)
+                console.log(hour)
               }}>HR</button>
-              <button onClick={() => setTime(day)}>D</button>
-              <button onClick={() => setTime(week)}>WK</button>
+              <button onClick={() => {
+                setTime(day)
+                console.log(day)
+                }}>D</button>
+              <button onClick={() => {
+                setTime(week)
+                console.log(week)
+              }}>WK</button>
             </div>
           </div>
         </div>

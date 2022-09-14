@@ -131,6 +131,10 @@ const Stock = () => {
   const handleClick = (time) => {
     setTime(time)
   }
+
+  useEffect(() => {
+    handleClick;
+  }, [])
   
 
   const loaded = () => {

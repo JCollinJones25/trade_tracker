@@ -9,9 +9,9 @@ body {
   text-align: center;
 }
 
-/* body > #root > div {
+body > #root > div {
   height: 100%;
-} */
+}
 
 html, body {
   margin: 0;
@@ -202,11 +202,12 @@ a {
   margin-bottom: 35px;
   border: 1px solid;
   max-width: 750px;
-  max-height: auto;
+  height: auto;
   text-align: left;
   padding: 15px;
   display: block;
   text-align: center;
+  padding-bottom: 35px;
 }
 
 .stock-price-change {

@@ -77,6 +77,7 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
+    setTime();
   }, [stockId]);
 
   // chart options

@@ -13,10 +13,14 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  const [hour, setHour] = useState([])
-  const [day, setDay] = useState([])
-  const [week, setWeek] = useState([])
-  const [timeRange, setTimeRange] = useState([]);
+  // const [hour, setHour] = useState([])
+  // const [day, setDay] = useState([])
+  // const [week, setWeek] = useState([])
+  const [timeRange, setTimeRange] = useState({
+    hour: [],
+    day: [],
+    week: []
+  });
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -60,17 +64,23 @@ const Stock = () => {
         }
         console.log(dayRange)
 
-        setWeek(weekRange)
-        setDay(dayRange)
-        setHour(hourRange)
-        setTimeRange(hourRange)
+        // setWeek(weekRange)
+        // setDay(dayRange)
+        // setHour(hourRange)
+        // setTimeRange(hourRange)
+
+        setTimeRange({
+          hour: hourRange,
+          day: dayRange,
+          week: weekRange
+        })
         
-        console.log(week)
-        console.log(day)
-        console.log(hour)
+        console.log(timeRange.week)
+        console.log(timeRange.day)
+        console.log(timeRange.hour)
         console.log(timeRange)
-        const price = timeRange.map((time, idx) => ({
-          x: new Date(time.date),
+        const price = timeRange.hour.map((time, idx) => ({
+        x: new Date(time.date),
         y: [
           week[idx].data.open,
           week[idx].data.high,
@@ -91,7 +101,7 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-  }, [stockId, hour, week, day]);
+  }, [stockId]);
 
   // chart data
   const chart = {
@@ -179,9 +189,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} day={day} week={week}/> */}
             <div className="buttons">
-              <button onClick={setTimeRange(hour)}>HR</button>
-              <button onClick={setTimeRange(day)}>D</button>
-              <button onClick={setTimeRange(week)}>WK</button>
+              <button onClick={setTimeRange(timeRange.hour)}>HR</button>
+              <button onClick={setTimeRange(timeRange.day)}>D</button>
+              <button onClick={setTimeRange(timeRange.week)}>WK</button>
             </div>
           </div>
         </div>

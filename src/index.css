@@ -9,9 +9,9 @@ body {
   text-align: center;
 }
 
-body > #root > div {
+/* body > #root > div {
   height: 100%;
-}
+} */
 
 html, body {
   margin: 0;
@@ -329,13 +329,13 @@ a {
 }
 
 button:hover {
-  background-color: var(--blue, 0.5);
+  background-color: #232d59;
 }
 
 button:active {
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-          box-shadow: inset 0px 0px 5px #c1c1c1;
+  -webkit-box-shadow: inset 0px 0px 5px #d2d2d2;
+     -moz-box-shadow: inset 0px 0px 5px #d2d2d2;
+          box-shadow: inset 0px 0px 5px #d2d2d2;
    outline: none;
 }
 

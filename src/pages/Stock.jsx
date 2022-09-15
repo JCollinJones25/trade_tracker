@@ -165,9 +165,9 @@ const Stock = () => {
     ]);
   };
 
-  useEffect(() => {
-    handleClick();
-  }, []);
+  // useEffect(() => {
+  //   handleClick();
+  // }, []);
 
   const loaded = () => {
     return (

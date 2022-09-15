@@ -162,7 +162,7 @@ const Stock = () => {
 
   useEffect(() => {
     handleClick();
-  }, []);
+  }, [globalData]);
 
   const loaded = () => {
     return (

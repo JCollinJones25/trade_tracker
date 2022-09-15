@@ -27,7 +27,7 @@ const Search = (props) => {
 
   useEffect(() => {
     showResults();
-  }, []);
+  }, [searchState]);
 
   return (
     <div className="search">

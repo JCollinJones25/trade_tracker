@@ -39,6 +39,7 @@ const Stock = () => {
 
       // week (prices = a weeks worth of data)
       const prices = data.data;
+      globalData.push(prices)
   
       for (let i = 0; i < prices.length; i++) {
         week.push(prices[i]);
@@ -139,10 +140,10 @@ const Stock = () => {
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
-        prices[idx].data.open,
-        prices[idx].data.high,
-        prices[idx].data.low,
-        prices[idx].data.close,
+        globalData[idx].data.open,
+        globalData[idx].data.high,
+        globalData[idx].data.low,
+        globalData[idx].data.close,
       ],
     }));
     chart.updateSeries([

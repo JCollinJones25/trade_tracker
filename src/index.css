@@ -203,11 +203,10 @@ a {
   border: 1px solid;
   max-width: 750px;
   height: auto;
-  text-align: left;
   padding: 15px;
-  display: relative;
+  display: absolute;
   text-align: center;
-  padding-bottom: 35px;
+  bottom: 35px;
 }
 
 .stock-price-change {

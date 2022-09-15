@@ -135,8 +135,8 @@ const Stock = () => {
 
   const handleClick = (newTime) => {
     setTime([]);
-    setTime(newTime, () => {
-      console.log(newTime)
+    setTime(...newTime, {
+      newTime
     });
     console.log(newTime);
     const price = time.map((time, idx) => ({

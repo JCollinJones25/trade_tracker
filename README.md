@@ -49,7 +49,7 @@ As a user, I want to see visual aids such as charts or graphs.
 - include API for a candlestick chart for each stock ✅
 - another API for search bar to match ticker to stock name and show results ✅
 - stock's current price changes color between green and red depending on previous price ✅
-- buttons to change the x axis on the graph to either 1HR, 1D, 1W.
+- buttons to change the x axis on the graph to either 1HR, 1D, 1W. ✅
 - Add stocks to a 'watch list' or 'favorites'
 - User AUTH
 

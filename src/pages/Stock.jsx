@@ -157,7 +157,7 @@ const Stock = () => {
 
   useEffect(() => {
     handleClick();
-  }, []);
+  }, [time]);
 
   const loaded = () => {
     return (

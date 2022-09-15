@@ -18,7 +18,6 @@ const Stock = () => {
   const [week, setWeek] = useState([]);
   const [time, setTime] = useState([]);
   const [globalData, setGlobalData] = useState([]);
-  const [previousTime, setPreviousTime] = useState([]);
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -136,9 +135,7 @@ const Stock = () => {
 
   const handleClick = (newTime) => {
     setTime([]);
-    const prevTime = [...newTime];
     setTime(newTime);
-    setPreviousTime(prevTime)
     console.log(newTime);
     const price = time.map((time, idx) => ({
       x: new Date(time.date),

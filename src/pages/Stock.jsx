@@ -174,9 +174,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button onClick={() => {handleClick(hour)}}>HR</button>
-              <button onClick={() => {handleClick(day)}}>D</button>
-              <button onClick={() => {handleClick(week)}}>WK</button>
+              <button onClick={() => {handleClick(hour), getStocks, getStockInfo}}>HR</button>
+              <button onClick={() => {handleClick(day), getStocks, getStockInfo}}>D</button>
+              <button onClick={() => {handleClick(week), getStocks, getStockInfo}}>WK</button>
             </div>
           </div>
         </div>

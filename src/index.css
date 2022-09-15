@@ -257,8 +257,8 @@ a {
 }
 
 .stock-page {
-  display: inline;
-  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .fetching {

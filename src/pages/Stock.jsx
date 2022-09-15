@@ -39,53 +39,44 @@ const Stock = () => {
 
       // week (prices = a weeks worth of data)
       const prices = data.data;
-      console.log(prices)
-      globalData.push(prices);
-      console.log(globalData)
+  
+      for (let i = 0; i < prices.length; i++) {
+        week.push(prices[i]);
+      }
+      // hour
+      for (let i = 0; i < 50; i++) {
+        hour.push(prices[i]);
+        time.push(prices[i]);
+      }
+      
+      // day
+      for (let i = 0; i < 380; i++) {
+        day.push(prices[i]);
+      }
+      
+      console.log(hour);
+      console.log(day);
+      console.log(week);
+      console.log(time);
+      
+      const price = time.map((time, idx) => ({
+        x: new Date(time.date),
+        y: [
+          prices[idx].data.open,
+          prices[idx].data.high,
+          prices[idx].data.low,
+          prices[idx].data.close,
+        ],
+      }));
+      setSeries([
+        {
+          data: price,
+        },
+      ]);
     } catch (error) {
       console.log(error);
     }
   };
-
-  const renderChart = () => {
-    console.log(globalData)
-    const prices = globalData[0]
-    console.log(prices)
-    for (let i = 0; i < prices.length; i++) {
-      week.push(prices[i]);
-    }
-    // hour
-    for (let i = 0; i < 50; i++) {
-      hour.push(prices[i]);
-      time.push(prices[i]);
-    }
-
-    // day
-    for (let i = 0; i < 380; i++) {
-      day.push(prices[i]);
-    }
-
-    console.log(hour);
-    console.log(day);
-    console.log(week);
-    console.log(time);
-
-    const price = time.map((time, idx) => ({
-      x: new Date(time.date),
-      y: [
-        prices[idx].data.open,
-        prices[idx].data.high,
-        prices[idx].data.low,
-        prices[idx].data.close,
-      ],
-    }));
-    setSeries([
-      {
-        data: price,
-      },
-    ]);
-  };
-  renderChart()
 
   useEffect(() => {
     getStocks();

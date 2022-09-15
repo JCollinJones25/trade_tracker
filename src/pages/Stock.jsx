@@ -140,10 +140,10 @@ const Stock = () => {
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
-        globalData[idx].data.open,
-        globalData[idx].data.high,
-        globalData[idx].data.low,
-        globalData[idx].data.close,
+        globalData[0][idx].data.open,
+        globalData[0][idx].data.high,
+        globalData[0][idx].data.low,
+        globalData[0][idx].data.close,
       ],
     }));
     // const chart = new Chart;

@@ -224,7 +224,7 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined || globalData === [] ? (
+          {stock === undefined || globalData[0] === [] || time[0] === undefined? (
             invalidTicker()
           ) : (
             <div className="spinner"></div>

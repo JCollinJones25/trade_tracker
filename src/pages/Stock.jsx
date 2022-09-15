@@ -17,6 +17,7 @@ const Stock = () => {
   const [day, setDay] = useState([])
   const [week, setWeek] = useState([])
   const [time, setTime] = useState([])
+  const [data, setData] = useState([])
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -38,32 +39,40 @@ const Stock = () => {
 
       // week (prices = a weeks worth of data)
       const prices = data.data;
-      for (let i = 0; i < prices.length; i++) {
-        week.push(prices[i]);
+      setData(prices)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    const renderChart = () => {
+      for (let i = 0; i < data.length; i++) {
+        week.push(data[i]);
       }
       // hour
       for (let i = 0; i < 50; i++) {
-        hour.push(prices[i]);
-        time.push(prices[i])
+        hour.push(data[i]);
+        time.push(data[i])
       }
-
+      
       // day
       for (let i = 0; i < 380; i++) {
-        day.push(prices[i]);
+        day.push(data[i]);
       }
-
+      
       console.log(hour)
       console.log(day)
       console.log(week)
       console.log(time)
-
+      
       const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [
-          prices[idx].data.open,
-          prices[idx].data.high,
-          prices[idx].data.low,
-          prices[idx].data.close,
+          data[idx].data.open,
+          data[idx].data.high,
+          data[idx].data.low,
+          data[idx].data.close,
         ],
       }));
       setSeries([
@@ -71,14 +80,12 @@ const Stock = () => {
           data: price,
         },
       ]);
-    } catch (error) {
-      console.log(error);
     }
-  };
-
-  useEffect(() => {
-    getStocks();
-    getStockInfo();
+      
+      useEffect(() => {
+        getStocks();
+        getStockInfo();
+        renderChart();
   }, [stockId]);
   
   // chart options
@@ -134,7 +141,7 @@ const Stock = () => {
     console.log(time);
     setTime(time);
     console.log(time);
-    // getStocks();
+    renderChart();
   }
 
   useEffect(() => {

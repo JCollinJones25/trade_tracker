@@ -134,10 +134,22 @@ const Stock = () => {
 
   const handleClick = (time) => {
     setTime([]);
-    console.log(time);
     setTime(time);
     console.log(time);
-    chart.render()
+    const price = time.map((time, idx) => ({
+      x: new Date(time.date),
+      y: [
+        prices[idx].data.open,
+        prices[idx].data.high,
+        prices[idx].data.low,
+        prices[idx].data.close,
+      ],
+    }));
+    updateSeries([
+      {
+        data: price,
+      },
+    ]);
   };
 
   useEffect(() => {

@@ -85,7 +85,7 @@ const Stock = () => {
   }, [stockId]);
 
   // chart options
-  const chart = {
+  let chart = {
     series: [
       {
         data: [],

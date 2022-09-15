@@ -12,11 +12,11 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
+  const [hour, setHour] = useState([]);
+  const [day, setDay] = useState([]);
+  const [week, setWeek] = useState([]);
   const [time, setTime] = useState([]);
-  const hour = [];
-  const day = [];
-  const week = [];
-  const globalData = [];
+  const [globalData, setGlobalData] = useState([]);
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -101,35 +101,6 @@ const Stock = () => {
     },
   };
 
-  
-  const handleClick = (newTime) => {
-    setTime([]);
-    setTime(newTime);
-    console.log(newTime);
-    renderChart();
-  };
-  
-  const renderChart = () => {
-    const price = time.map((time, idx) => ({
-      x: new Date(time.date),
-      y: [
-        globalData[0][idx].data.open,
-        globalData[0][idx].data.high,
-        globalData[0][idx].data.low,
-        globalData[0][idx].data.close,
-      ],
-    }));
-    setSeries([
-      {
-        data: price,
-      },
-    ]);
-  }
-  
-  useEffect(() => {
-    renderChart();
-  }, [series]);
-  
   // function for error message if stock is undefined
   const invalidTicker = () => {
     return (
@@ -151,6 +122,34 @@ const Stock = () => {
   const laodingDate = () => {
     return <h1>Loading date...</h1>;
   }
+
+  const handleClick = (newTime) => {
+    setTime([]);
+    setTime(newTime);
+    console.log(newTime);
+    renderChart();
+  };
+
+  const renderChart = () => {
+    const price = time.map((time, idx) => ({
+      x: new Date(time.date),
+      y: [
+        globalData[0][idx].data.open,
+        globalData[0][idx].data.high,
+        globalData[0][idx].data.low,
+        globalData[0][idx].data.close,
+      ],
+    }));
+    setSeries([
+      {
+        data: price,
+      },
+    ]);
+  }
+    
+  useEffect(() => {
+    renderChart();
+  }, [series]);
 
   const loaded = () => {
     return (

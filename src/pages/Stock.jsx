@@ -133,14 +133,11 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  // const handleSubmit = (time) => {
-  //   setTime(time);
-  // }
-
   const handleClick = (newTime) => {
     setTime([]);
-    setTime(newTime, () => setTime(newTime));
-    // handleSubmit(newTime);
+    setTime(newTime, () => {
+      setTime(newTime)
+    });
     console.log(newTime);
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
@@ -151,12 +148,6 @@ const Stock = () => {
         globalData[0][idx].data.close,
       ],
     }));
-    // const chart = new Chart;
-    // chart.updateSeries([
-    //   {
-    //     data: price,
-    //   },
-    // ]);
     setSeries([
       {
         data: price,
@@ -164,9 +155,9 @@ const Stock = () => {
     ]);
   };
 
-  // useEffect(() => {
-  //   handleClick();
-  // }, []);
+  useEffect(() => {
+    handleClick();
+  }, []);
 
   const loaded = () => {
     return (
@@ -222,7 +213,6 @@ const Stock = () => {
                 height={320}
               />
             </div>
-            {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
               <button onClick={() => {handleClick(hour)}}>HR</button>
               <button onClick={() => {handleClick(day)}}>D</button>

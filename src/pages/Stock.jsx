@@ -12,11 +12,11 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
-  const [hour, setHour] = useState([]);
-  const [day, setDay] = useState([]);
-  const [week, setWeek] = useState([]);
   const [time, setTime] = useState([]);
-  const [globalData, setGlobalData] = useState([]);
+  const hour = [];
+  const day = [];
+  const week = [];
+  const globalData = [];
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -221,7 +221,7 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined ? (
+          {stock === undefined && time === [] ? (
             invalidTicker()
           ) : (
             <div className="spinner"></div>

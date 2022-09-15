@@ -39,7 +39,9 @@ const Stock = () => {
 
       // week (prices = a weeks worth of data)
       const prices = data.data;
+      console.log(prices)
       setGlobalData(prices);
+      console.log(globalData)
     } catch (error) {
       console.log(error);
     }
@@ -203,27 +205,9 @@ const Stock = () => {
             </div>
             {/* <Buttons hour={hour} week={week} day={day}/> */}
             <div className="buttons">
-              <button
-                onClick={() => {
-                  handleClick(hour);
-                }}
-              >
-                HR
-              </button>
-              <button
-                onClick={() => {
-                  handleClick(day);
-                }}
-              >
-                D
-              </button>
-              <button
-                onClick={() => {
-                  handleClick(week);
-                }}
-              >
-                WK
-              </button>
+              <button onClick={() => {handleClick(hour)}}>HR</button>
+              <button onClick={() => {handleClick(day)}}>D</button>
+              <button onClick={() => {handleClick(week)}}>WK</button>
             </div>
           </div>
         </div>

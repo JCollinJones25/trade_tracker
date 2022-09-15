@@ -50,6 +50,7 @@ const Stock = () => {
   const renderChart = () => {
     console.log(globalData)
     const prices = globalData[0]
+    console.log(prices)
     for (let i = 0; i < prices.length; i++) {
       week.push(prices[i]);
     }

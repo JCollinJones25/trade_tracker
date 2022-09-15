@@ -364,4 +364,9 @@ button:active {
     font-size: 35px;
   }
 
+  .apexcharts-toolbar {
+    width: 35%;
+    z-index: 1;
+  }
+
 }

@@ -56,6 +56,7 @@ const Stock = () => {
       console.log(day)
       console.log(week)
       console.log(time)
+
       const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [
@@ -129,8 +130,9 @@ const Stock = () => {
   }
 
   const handleClick = (time) => {
-    setTime(time)
-    console.log(time)
+    setTime(time);
+    console.log(time);
+    getStocks();
   }
 
   useEffect(() => {

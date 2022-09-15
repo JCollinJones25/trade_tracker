@@ -133,16 +133,15 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  const handleSubmit = (time) => {
-    setTime(time);
-  }
+  // const handleSubmit = (time) => {
+  //   setTime(time);
+  // }
 
   const handleClick = (newTime) => {
     setTime([]);
-    setTime(newTime, handleSubmit(newTime));
+    setTime(newTime, setTime(newTime));
     // handleSubmit(newTime);
     console.log(newTime);
-    console.log(globalData[0]);
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [

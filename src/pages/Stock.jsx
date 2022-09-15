@@ -133,10 +133,10 @@ const Stock = () => {
     return <h1>Loading date...</h1>;
   }
 
-  const handleClick = (time) => {
+  const handleClick = (newTime) => {
     setTime([]);
-    setTime(time);
-    console.log(time);
+    setTime(newTime);
+    console.log(newTime);
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [

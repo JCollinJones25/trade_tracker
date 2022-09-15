@@ -101,6 +101,37 @@ const Stock = () => {
     },
   };
 
+  
+  const handleClick = (newTime) => {
+    setTime([]);
+    setTime(newTime);
+    console.log(newTime);
+    renderChart();
+  };
+  
+  const renderChart = () => {
+    console.log(time)
+    console.log(globalData)
+    const price = time.map((time, idx) => ({
+      x: new Date(time.date),
+      y: [
+        globalData[0][idx].data.open,
+        globalData[0][idx].data.high,
+        globalData[0][idx].data.low,
+        globalData[0][idx].data.close,
+      ],
+    }));
+    setSeries([
+      {
+        data: price,
+      },
+    ]);
+  }
+  
+  useEffect(() => {
+    renderChart();
+  }, [series]);
+  
   // function for error message if stock is undefined
   const invalidTicker = () => {
     return (
@@ -122,35 +153,7 @@ const Stock = () => {
   const laodingDate = () => {
     return <h1>Loading date...</h1>;
   }
-
-  const handleClick = (newTime) => {
-    setTime([]);
-    setTime(newTime);
-    console.log(newTime);
-    renderChart();
-  };
-
-  const renderChart = () => {
-    const price = time.map((time, idx) => ({
-      x: new Date(time.date),
-      y: [
-        globalData[0][idx].data.open,
-        globalData[0][idx].data.high,
-        globalData[0][idx].data.low,
-        globalData[0][idx].data.close,
-      ],
-    }));
-    setSeries([
-      {
-        data: price,
-      },
-    ]);
-  }
-    
-  useEffect(() => {
-    renderChart();
-  }, [series]);
-
+  
   const loaded = () => {
     return (
       <>

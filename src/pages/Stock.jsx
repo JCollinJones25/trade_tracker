@@ -40,14 +40,14 @@ const Stock = () => {
       // week (prices = a weeks worth of data)
       const prices = data.data;
       console.log(prices)
-      setGlobalData(prices);
-      console.log(globalData)
+      setGlobalData.push[prices];
     } catch (error) {
       console.log(error);
     }
   };
 
   const renderChart = () => {
+    console.log(globalData)
     for (let i = 0; i < globalData.length; i++) {
       week.push(globalData[i]);
     }

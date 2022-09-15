@@ -39,7 +39,7 @@ const Stock = () => {
 
       // week (prices = a weeks worth of data)
       const prices = data.data;
-      setData(prices);
+      setGlobalData(prices);
     } catch (error) {
       console.log(error);
     }

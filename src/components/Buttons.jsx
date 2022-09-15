@@ -1,5 +1,4 @@
 const Buttons = (props) => {
-
   return (
     <div className="buttons">
         <button onClick={() => {props.handleClick(props.hour)}}>HR</button>

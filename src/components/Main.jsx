@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home'
 import Stock from '../pages/Stock'

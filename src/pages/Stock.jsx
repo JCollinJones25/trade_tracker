@@ -36,11 +36,9 @@ const Stock = () => {
       const response = await fetch(URL);
       const data = await response.json();
       setStock(data.data[0]);
-
-      // week (prices = a weeks worth of data)
       const prices = data.data;
       globalData.push(prices)
-  
+      // week (prices = a weeks worth of data)
       for (let i = 0; i < prices.length; i++) {
         week.push(prices[i]);
       }
@@ -49,17 +47,10 @@ const Stock = () => {
         hour.push(prices[i]);
         time.push(prices[i]);
       }
-      
       // day
       for (let i = 0; i < 380; i++) {
         day.push(prices[i]);
       }
-      
-      console.log(hour);
-      console.log(day);
-      console.log(week);
-      console.log(time);
-      
       const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [

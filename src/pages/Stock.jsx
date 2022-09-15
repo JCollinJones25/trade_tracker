@@ -150,7 +150,7 @@ const Stock = () => {
       {
         data: price,
       },
-    ]);
+    ], () => console.log(series));
   };
 
   // useEffect(() => {

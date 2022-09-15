@@ -139,7 +139,7 @@ const Stock = () => {
 
   const handleClick = (newTime) => {
     setTime([]);
-    setTime(newTime);
+    setTime({newTime}, () => {console.log(newTime)});
     handleSubmit(newTime);
     console.log(newTime);
     console.log(globalData[0]);
@@ -167,8 +167,7 @@ const Stock = () => {
 
   useEffect(() => {
     handleClick();
-    handleSubmit();
-  }, [time]);
+  }, []);
 
   const loaded = () => {
     return (

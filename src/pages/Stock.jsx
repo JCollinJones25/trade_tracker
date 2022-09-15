@@ -130,9 +130,11 @@ const Stock = () => {
   }
 
   const handleClick = (time) => {
+    setTime([])
+    console.log(time);
     setTime(time);
     console.log(time);
-    getStocks();
+    // getStocks();
   }
 
   useEffect(() => {

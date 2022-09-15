@@ -41,6 +41,7 @@ const Stock = () => {
       const prices = data.data;
       console.log(prices)
       globalData.push(prices);
+      console.log(globalData)
     } catch (error) {
       console.log(error);
     }

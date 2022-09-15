@@ -49,18 +49,19 @@ const Stock = () => {
 
   const renderChart = () => {
     console.log(globalData)
-    for (let i = 0; i < globalData.length; i++) {
-      week.push(globalData[i]);
+    const prices = globalData[0]
+    for (let i = 0; i < prices.length; i++) {
+      week.push(prices[i]);
     }
     // hour
     for (let i = 0; i < 50; i++) {
-      hour.push(globalData[i]);
-      time.push(globalData[i]);
+      hour.push(prices[i]);
+      time.push(prices[i]);
     }
 
     // day
     for (let i = 0; i < 380; i++) {
-      day.push(globalData[i]);
+      day.push(prices[i]);
     }
 
     console.log(hour);
@@ -71,10 +72,10 @@ const Stock = () => {
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
-        globalData[idx].data.open,
-        globalData[idx].data.high,
-        globalData[idx].data.low,
-        globalData[idx].data.close,
+        prices[idx].data.open,
+        prices[idx].data.high,
+        prices[idx].data.low,
+        prices[idx].data.close,
       ],
     }));
     setSeries([
@@ -87,7 +88,6 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-    renderChart();
   }, [stockId]);
 
   // chart options
@@ -118,7 +118,7 @@ const Stock = () => {
   };
 
   // function for error message if stock is undefined
-  function invalidTicker() {
+  const invalidTicker = () => {
     return (
       <div className="error">
         <h3>ERROR: INVALID STOCK TICKER ENTERED</h3>
@@ -128,13 +128,14 @@ const Stock = () => {
 
   // replacing letters in data with
   // empty string so date is more readable
-  function changeDate() {
+  const changeDate = () => {
     const dateString = stock.date;
     const newDate = dateString.replace("T", " | ");
     const finalDate = newDate.replace(".000Z", "");
     return <h1>{finalDate}</h1>;
   }
-  function laodingDate() {
+
+  const laodingDate = () => {
     return <h1>Loading date...</h1>;
   }
 

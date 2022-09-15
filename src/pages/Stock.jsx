@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Chart from "react-apexcharts";
+// import Buttons from "../components/Buttons";
 
 const Stock = () => {
   const [series, setSeries] = useState([
@@ -12,6 +13,11 @@ const Stock = () => {
   const { stockId } = useParams();
   const [stock, setStock] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
+  const [hour, setHour] = useState([]);
+  const [day, setDay] = useState([]);
+  const [week, setWeek] = useState([]);
+  const [time, setTime] = useState([]);
+  const [globalData, setGlobalData] = useState([]);
 
   const getStockInfo = async () => {
     const apiKey = process.env.REACT_APP_API;
@@ -31,22 +37,30 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
 
-      // prices = a weeks worth of data
+      // week (prices = a weeks worth of data)
       const prices = data.data;
-
-      // defining hour as empty array to push first 100 timestamps into to get smaller range of times on x axis
-      let hour = [];
+      globalData.push(prices)
+  
+      for (let i = 0; i < prices.length; i++) {
+        week.push(prices[i]);
+      }
+      // hour
       for (let i = 0; i < 50; i++) {
         hour.push(prices[i]);
+        time.push(prices[i]);
       }
-
-      // another time range option
-      let day = [];
+      
+      // day
       for (let i = 0; i < 380; i++) {
         day.push(prices[i]);
       }
-
-      const price = hour.map((time, idx) => ({
+      
+      console.log(hour);
+      console.log(day);
+      console.log(week);
+      console.log(time);
+      
+      const price = time.map((time, idx) => ({
         x: new Date(time.date),
         y: [
           prices[idx].data.open,
@@ -70,7 +84,7 @@ const Stock = () => {
     getStockInfo();
   }, [stockId]);
 
-  // chart data
+  // chart options
   const chart = {
     series: [
       {
@@ -98,7 +112,7 @@ const Stock = () => {
   };
 
   // function for error message if stock is undefined
-  function invalidTicker() {
+  const invalidTicker = () => {
     return (
       <div className="error">
         <h3>ERROR: INVALID STOCK TICKER ENTERED</h3>
@@ -108,15 +122,44 @@ const Stock = () => {
 
   // replacing letters in data with
   // empty string so date is more readable
-  function changeDate() {
+  const changeDate = () => {
     const dateString = stock.date;
     const newDate = dateString.replace("T", " | ");
     const finalDate = newDate.replace(".000Z", "");
     return <h1>{finalDate}</h1>;
   }
-  function laodingDate() {
+
+  const laodingDate = () => {
     return <h1>Loading date...</h1>;
   }
+
+  const handleClick = (newTime) => {
+    setTime([]);
+    setTime(newTime);
+    console.log(newTime);
+    renderChart();
+  };
+
+  const renderChart = () => {
+    const price = time.map((time, idx) => ({
+      x: new Date(time.date),
+      y: [
+        globalData[0][idx].data.open,
+        globalData[0][idx].data.high,
+        globalData[0][idx].data.low,
+        globalData[0][idx].data.close,
+      ],
+    }));
+    setSeries([
+      {
+        data: price,
+      },
+    ]);
+  }
+    
+  useEffect(() => {
+    renderChart();
+  }, [series]);
 
   const loaded = () => {
     return (
@@ -125,16 +168,34 @@ const Stock = () => {
         <div className="stock-page">
           <div className="stock-info">
             <div className="stock-title">
-                <h1>
-                  {stock.ticker} {stockInfo.name}{" "}
-                </h1>
+              <h1>
+                {stock.ticker} {stockInfo.name}{" "}
+              </h1>
               <div className="stock-price-change">
-                <div className={[ "currentPrice", stockInfo.price > stockInfo.day_open ? "gains" : stockInfo.day_open > stockInfo.price ? "losses" : "", ].join(" ")}>
-                <h2>${stockInfo.price}</h2>
+                <div
+                  className={[
+                    "currentPrice",
+                    stockInfo.price > stockInfo.day_open
+                      ? "gains"
+                      : stockInfo.day_open > stockInfo.price
+                      ? "losses"
+                      : "",
+                  ].join(" ")}
+                >
+                  <h2>${stockInfo.price}</h2>
                 </div>
-                <div className={["dayChange", stockInfo.day_change > 0 ? "gains" : stockInfo.day_change < 0 ? "losses" : ""].join(" ")}>
+                <div
+                  className={[
+                    "dayChange",
+                    stockInfo.day_change > 0
+                      ? "gains"
+                      : stockInfo.day_change < 0
+                      ? "losses"
+                      : "",
+                  ].join(" ")}
+                >
                   <h2>({stockInfo.day_change}%)</h2>
-              </div>
+                </div>
               </div>
             </div>
             {stock.date ? changeDate() : laodingDate()}
@@ -154,6 +215,11 @@ const Stock = () => {
                 height={320}
               />
             </div>
+            <div className="buttons">
+              <button onClick={() => {handleClick(hour)}}>HR</button>
+              <button onClick={() => {handleClick(day)}}>D</button>
+              <button onClick={() => {handleClick(week)}}>WK</button>
+            </div>
           </div>
         </div>
       </>
@@ -165,7 +231,11 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined ? invalidTicker() :  <div className="spinner"></div>}
+          {stock === undefined ? (
+            invalidTicker()
+          ) : (
+            <div className="spinner"></div>
+          )}
         </div>
       </>
     );

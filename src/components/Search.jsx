@@ -9,7 +9,7 @@ const Search = (props) => {
 
   function handleSearch(e) {
     setStock(e.target.value);
-    setSearchState(e.target.value);
+    setSearchState(e.target.value, handleSubmit);
     showResults(e)
   }
 
@@ -27,7 +27,7 @@ const Search = (props) => {
 
   useEffect(() => {
     showResults();
-  }, []);
+  }, [searchState]);
 
   return (
     <div className="search">

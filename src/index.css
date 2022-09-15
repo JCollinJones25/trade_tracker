@@ -203,11 +203,12 @@ a {
   margin-bottom: 35px;
   border: 1px solid;
   max-width: 750px;
-  max-height: auto;
-  text-align: left;
+  width: 90%;
+  height: auto;
   padding: 15px;
-  display: block;
+  display: absolute;
   text-align: center;
+  bottom: 35px;
 }
 
 .stock-price-change {
@@ -258,8 +259,8 @@ a {
 }
 
 .stock-page {
-  display: inline;
-  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .fetching {
@@ -314,6 +315,7 @@ a {
   flex-direction: row;
   margin: auto;
   justify-content: space-evenly;
+  width: 40%;
   width: 50%;
   height: auto;
 }
@@ -323,10 +325,22 @@ a {
   font-size: 10px;
   border: 1px solid white;
   border-radius: 5px;
+  width: 35px;
+  height: 35px;
   background-color: var(--navy);
   color: white;
 }
 
+button:hover {
+  background-color: #232d59;
+}
+
+button:active {
+  -webkit-box-shadow: inset 0px 0px 5px #d2d2d2;
+     -moz-box-shadow: inset 0px 0px 5px #d2d2d2;
+          box-shadow: inset 0px 0px 5px #d2d2d2;
+   outline: none;
+}
 
 @media only screen and (max-width: 600px) {
 

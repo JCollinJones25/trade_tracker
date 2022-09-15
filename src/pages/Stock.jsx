@@ -137,7 +137,6 @@ const Stock = () => {
     console.log(time);
     setTime(time);
     console.log(time);
-    renderChart();
   };
 
   useEffect(() => {

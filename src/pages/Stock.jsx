@@ -136,7 +136,7 @@ const Stock = () => {
   const handleClick = (newTime) => {
     setTime([]);
     setTime(newTime, () => {
-      setTime(newTime)
+      console.log(newTime)
     });
     console.log(newTime);
     const price = time.map((time, idx) => ({
@@ -155,9 +155,9 @@ const Stock = () => {
     ]);
   };
 
-  useEffect(() => {
-    handleClick();
-  }, [time]);
+  // useEffect(() => {
+  //   handleClick();
+  // }, []);
 
   const loaded = () => {
     return (

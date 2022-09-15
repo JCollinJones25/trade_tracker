@@ -137,6 +137,10 @@ const Stock = () => {
     setTime([]);
     setTime(newTime);
     console.log(newTime);
+    renderChart();
+  };
+
+  const renderChart = () => {
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
@@ -150,12 +154,12 @@ const Stock = () => {
       {
         data: price,
       },
-    ], () => console.log(series));
-  };
-
-  // useEffect(() => {
-  //   handleClick();
-  // }, []);
+    ]);
+  }
+    
+  useEffect(() => {
+    renderChart();
+  }, [series]);
 
   const loaded = () => {
     return (

@@ -145,7 +145,7 @@ const Stock = () => {
         prices[idx].data.close,
       ],
     }));
-    updateSeries([
+    chart.updateSeries([
       {
         data: price,
       },

@@ -85,6 +85,7 @@ const Stock = () => {
       },
     ]);
   };
+  renderChart()
 
   useEffect(() => {
     getStocks();

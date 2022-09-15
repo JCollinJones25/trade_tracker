@@ -72,6 +72,7 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
+    invalidTicker();
   }, [stockId]);
 
   // chart options

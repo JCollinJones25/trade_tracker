@@ -85,7 +85,7 @@ const Stock = () => {
   }, [stockId]);
 
   // chart options
-  let chart = {
+  const chart = {
     series: [
       {
         data: [],
@@ -146,6 +146,7 @@ const Stock = () => {
         globalData[idx].data.close,
       ],
     }));
+    const chart = new ApexCharts(el, options);
     chart.updateSeries([
       {
         data: price,

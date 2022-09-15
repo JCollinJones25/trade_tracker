@@ -146,8 +146,13 @@ const Stock = () => {
         globalData[idx].data.close,
       ],
     }));
-    const chart = new Chart;
-    chart.updateSeries([
+    // const chart = new Chart;
+    // chart.updateSeries([
+    //   {
+    //     data: price,
+    //   },
+    // ]);
+    setSeries([
       {
         data: price,
       },

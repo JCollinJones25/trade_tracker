@@ -133,6 +133,7 @@ const Stock = () => {
       },
     ]);
   };
+  console.log(globalData)
 
   // useEffect(() => {
   //   renderChart();
@@ -205,7 +206,7 @@ const Stock = () => {
               <p>Low: ${stockInfo.day_low}</p>
               <p>Close: ${stock.data.close}</p>
             </div>
-              {!stock ? (
+              {globalData === undefined ? (
                 <div className="spinner"></div>)
               : ( 
                 <div className="chart">
@@ -252,7 +253,7 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {!stock ? (
+          {stock === undefined ? (
             invalidTicker()
           ) : (
             <div className="spinner"></div>

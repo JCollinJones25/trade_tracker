@@ -36,34 +36,42 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
       const prices = data.data;
-      globalData.push(prices);
+      setGlobalData(prices);
       // week (prices = a weeks worth of data)
+      let week = [];
       for (let i = 0; i < prices.length; i++) {
         week.push(prices[i]);
       }
+      setWeek(week);
       // hour
+      let hour = [];
       for (let i = 0; i < 50; i++) {
         hour.push(prices[i]);
-        time.push(prices[i]);
+        // time.push(prices[i]);
       }
+      setHour(hour);
+      setTime(hour);
       // day
+      let day = [];
       for (let i = 0; i < 380; i++) {
         day.push(prices[i]);
       }
-      const price = time.map((time, idx) => ({
-        x: new Date(time.date),
-        y: [
-          prices[idx].data.open,
-          prices[idx].data.high,
-          prices[idx].data.low,
-          prices[idx].data.close,
-        ],
-      }));
-      setSeries([
-        {
-          data: price,
-        },
-      ]);
+      setDay(day);
+      renderChart();
+      // const price = time.map((time, idx) => ({
+      //   x: new Date(time.date),
+      //   y: [
+      //     prices[idx].data.open,
+      //     prices[idx].data.high,
+      //     prices[idx].data.low,
+      //     prices[idx].data.close,
+      //   ],
+      // }));
+      // setSeries([
+      //   {
+      //     data: price,
+      //   },
+      // ]);
     } catch (error) {
       console.log(error);
     }
@@ -72,6 +80,8 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
+    setGlobalData();
+    // renderChart();
   }, [stockId]);
 
   // chart options
@@ -106,15 +116,15 @@ const Stock = () => {
     setTime(newTime);
     renderChart();
   };
-  
+
   const renderChart = () => {
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
-        globalData[0][idx].data.open,
-        globalData[0][idx].data.high,
-        globalData[0][idx].data.low,
-        globalData[0][idx].data.close,
+        globalData[idx].data.open,
+        globalData[idx].data.high,
+        globalData[idx].data.low,
+        globalData[idx].data.close,
       ],
     }));
     setSeries([
@@ -126,7 +136,7 @@ const Stock = () => {
 
   // useEffect(() => {
   //   renderChart();
-  // }, [series]);
+  // }, []);
 
   // function for error message if stock is undefined
   const invalidTicker = () => {
@@ -146,7 +156,7 @@ const Stock = () => {
     return <h1>{finalDate}</h1>;
   };
 
-  const laodingDate = () => {
+  const loadingDate = () => {
     return <h1>Loading date...</h1>;
   };
 
@@ -187,7 +197,7 @@ const Stock = () => {
                 </div>
               </div>
             </div>
-            {stock.date ? changeDate() : laodingDate()}
+            {stock.date ? changeDate() : loadingDate()}
             <p>Market Cap: ${stockInfo.market_cap}</p>
             <div className="OHLC">
               <p>Open: ${stockInfo.day_open}</p>
@@ -195,19 +205,41 @@ const Stock = () => {
               <p>Low: ${stockInfo.day_low}</p>
               <p>Close: ${stock.data.close}</p>
             </div>
-            <div className="chart">
-              <Chart
-                options={chart.options}
-                series={series}
-                type="candlestick"
-                width="100%"
-                height={320}
-              />
+              {!stock ? (
+                <div className="spinner"></div>)
+              : ( 
+                <div className="chart">
+                <Chart
+                  options={chart.options}
+                  series={series}
+                  type="candlestick"
+                  width="100%"
+                  height={320}
+                />
             </div>
+              )}
             <div className="buttons">
-              <button onClick={() => {handleClick(hour)}}>HR</button>
-              <button onClick={() => {handleClick(day)}}>D</button>
-              <button onClick={() => {handleClick(week)}}>WK</button>
+              <button
+                onClick={() => {
+                  handleClick(hour);
+                }}
+              >
+                HR
+              </button>
+              <button
+                onClick={() => {
+                  handleClick(day);
+                }}
+              >
+                D
+              </button>
+              <button
+                onClick={() => {
+                  handleClick(week);
+                }}
+              >
+                WK
+              </button>
             </div>
           </div>
         </div>
@@ -220,7 +252,7 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined ? (
+          {!stock ? (
             invalidTicker()
           ) : (
             <div className="spinner"></div>

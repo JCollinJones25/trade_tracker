@@ -206,9 +206,9 @@ const Stock = () => {
               <p>Low: ${stockInfo.day_low}</p>
               <p>Close: ${stock.data.close}</p>
             </div>
-              {globalData === undefined ? (
-                <div className="spinner"></div>)
-              : ( 
+              {/* {globalData === undefined ? (
+                <div className="spinner"></div>
+                ) : (  */}
                 <div className="chart">
                 <Chart
                   options={chart.options}
@@ -218,7 +218,7 @@ const Stock = () => {
                   height={320}
                 />
             </div>
-              )}
+              {/* )} */}
             <div className="buttons">
               <button
                 onClick={() => {

@@ -36,7 +36,7 @@ const Stock = () => {
       const data = await response.json();
       setStock(data.data[0]);
       const prices = data.data;
-      globalData.push(prices)
+      globalData.push(prices);
       // week (prices = a weeks worth of data)
       for (let i = 0; i < prices.length; i++) {
         week.push(prices[i]);
@@ -101,17 +101,13 @@ const Stock = () => {
     },
   };
 
-  
   const handleClick = (newTime) => {
     setTime([]);
     setTime(newTime);
-    console.log(newTime);
     renderChart();
   };
   
   const renderChart = () => {
-    console.log(time)
-    console.log(globalData)
     const price = time.map((time, idx) => ({
       x: new Date(time.date),
       y: [
@@ -126,12 +122,12 @@ const Stock = () => {
         data: price,
       },
     ]);
-  }
-  
-  useEffect(() => {
-    renderChart();
-  }, [series]);
-  
+  };
+
+  // useEffect(() => {
+  //   renderChart();
+  // }, [series]);
+
   // function for error message if stock is undefined
   const invalidTicker = () => {
     return (
@@ -139,7 +135,7 @@ const Stock = () => {
         <h3>ERROR: INVALID STOCK TICKER ENTERED</h3>
       </div>
     );
-  }
+  };
 
   // replacing letters in data with
   // empty string so date is more readable
@@ -148,11 +144,11 @@ const Stock = () => {
     const newDate = dateString.replace("T", " | ");
     const finalDate = newDate.replace(".000Z", "");
     return <h1>{finalDate}</h1>;
-  }
+  };
 
   const laodingDate = () => {
     return <h1>Loading date...</h1>;
-  }
+  };
 
   const loaded = () => {
     return (
@@ -224,7 +220,7 @@ const Stock = () => {
       <>
         <Nav />
         <div className="fetching">
-          {stock === undefined && globalData[0] === [] && time[0] === undefined? (
+          {stock === undefined ? (
             invalidTicker()
           ) : (
             <div className="spinner"></div>

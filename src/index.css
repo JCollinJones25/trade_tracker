@@ -37,7 +37,7 @@ html, body {
   margin-bottom: 5px;
   padding: 15px;
   color: var(--navy);
-  background-color: rgba(157, 185, 240, 0.6);
+  background-color: rgb(153, 179, 231);
   font-family: "Share Tech", sans-serif;
 }
 

@@ -37,7 +37,7 @@ const Search = (props) => {
           value={stock}
           className="searchbar"
           name="search"
-          placeholder="Enter any stock ticker"
+          placeholder="Search..."
           stock={props.stock}
           onChange={handleSearch}
         />

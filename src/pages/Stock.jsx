@@ -136,6 +136,9 @@ const Stock = () => {
 
   // function for error message if stock is undefined
   const invalidTicker = () => {
+    setTimeout(() => {
+      window.location = '/'
+    }, 1000)
     return (
       <div className="error">
         <h3>ERROR: INVALID STOCK TICKER ENTERED</h3>

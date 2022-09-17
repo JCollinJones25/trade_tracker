@@ -47,7 +47,6 @@ const Stock = () => {
       let hour = [];
       for (let i = 0; i < 50; i++) {
         hour.push(prices[i]);
-        // time.push(prices[i]);
       }
       setHour(hour);
       setTime(hour);
@@ -57,21 +56,20 @@ const Stock = () => {
         day.push(prices[i]);
       }
       setDay(day);
-      renderChart();
-      // const price = time.map((time, idx) => ({
-      //   x: new Date(time.date),
-      //   y: [
-      //     prices[idx].data.open,
-      //     prices[idx].data.high,
-      //     prices[idx].data.low,
-      //     prices[idx].data.close,
-      //   ],
-      // }));
-      // setSeries([
-      //   {
-      //     data: price,
-      //   },
-      // ]);
+      const price = time.map((time, idx) => ({
+        x: new Date(time.date),
+        y: [
+          prices[idx].data.open,
+          prices[idx].data.high,
+          prices[idx].data.low,
+          prices[idx].data.close,
+        ],
+      }));
+      setSeries([
+        {
+          data: price,
+        },
+      ]);
     } catch (error) {
       console.log(error);
     }
@@ -80,8 +78,6 @@ const Stock = () => {
   useEffect(() => {
     getStocks();
     getStockInfo();
-    setGlobalData();
-    // renderChart();
   }, [stockId]);
 
   // chart options
@@ -117,27 +113,27 @@ const Stock = () => {
     renderChart();
   };
 
-  const renderChart = () => {
-    const price = time.map((time, idx) => ({
-      x: new Date(time.date),
-      y: [
-        globalData[idx].data.open,
-        globalData[idx].data.high,
-        globalData[idx].data.low,
-        globalData[idx].data.close,
-      ],
-    }));
-    setSeries([
-      {
-        data: price,
-      },
-    ]);
-  };
+  const renderChart = () => { 
+      const price = time.map((time, idx) => ({
+        x: new Date(time.date),
+        y: [
+          globalData[idx].data.open,
+          globalData[idx].data.high,
+          globalData[idx].data.low,
+          globalData[idx].data.close,
+        ],
+      }));
+      setSeries([
+        {
+          data: price,
+        },
+      ]);
+    };
   console.log(globalData)
 
-  // useEffect(() => {
-  //   renderChart();
-  // }, []);
+  useEffect(() => {
+    renderChart();
+  }, [globalData]);
 
   // function for error message if stock is undefined
   const invalidTicker = () => {
@@ -160,6 +156,16 @@ const Stock = () => {
   const loadingDate = () => {
     return <h1>Loading date...</h1>;
   };
+
+  // let percChange = 0
+  // if (stock) {
+  //   let difference = stockInfo.price - stockInfo.day_open
+  //   percChange = (difference / stockInfo.day_open).toFixed(3) * 10
+  //   console.log(stockInfo.price)
+  //   console.log(stockInfo.day_open)
+  //   console.log(stockInfo.day_change)
+  //   console.log(percChange)
+  // }
 
   const loaded = () => {
     return (
@@ -206,9 +212,9 @@ const Stock = () => {
               <p>Low: ${stockInfo.day_low}</p>
               <p>Close: ${stock.data.close}</p>
             </div>
-              {/* {globalData === undefined ? (
+              {globalData === undefined ? (
                 <div className="spinner"></div>
-                ) : (  */}
+                ) : ( 
                 <div className="chart">
                 <Chart
                   options={chart.options}
@@ -218,7 +224,7 @@ const Stock = () => {
                   height={320}
                 />
             </div>
-              {/* )} */}
+              )} 
             <div className="buttons">
               <button
                 onClick={() => {

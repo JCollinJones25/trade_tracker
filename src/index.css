@@ -1,6 +1,8 @@
 :root {
   --navy: #0f1428;
   --blue: #286bf1;
+  --green: #01b746;
+  --red: #e12825;
 }
 
 body {
@@ -295,19 +297,19 @@ a {
 }
 
 .fetching a {
-  color: red;
+  color: var(--red);
 }
 
 .gains {
-  color: green;
+  color: var(--green);
 }
 
 .losses {
-  color: red;
+  color: var(--red);
 }
 
 .error {
-  color: red;
+  color: var(--red);
 }
 
 .buttons {

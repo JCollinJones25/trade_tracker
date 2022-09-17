@@ -129,11 +129,10 @@ const Stock = () => {
         },
       ]);
     };
-  console.log(globalData)
 
   useEffect(() => {
     renderChart();
-  }, [globalData]);
+  }, [time]);
 
   // function for error message if stock is undefined
   const invalidTicker = () => {
@@ -156,16 +155,6 @@ const Stock = () => {
   const loadingDate = () => {
     return <h1>Loading date...</h1>;
   };
-
-  // let percChange = 0
-  // if (stock) {
-  //   let difference = stockInfo.price - stockInfo.day_open
-  //   percChange = (difference / stockInfo.day_open).toFixed(3) * 10
-  //   console.log(stockInfo.price)
-  //   console.log(stockInfo.day_open)
-  //   console.log(stockInfo.day_change)
-  //   console.log(percChange)
-  // }
 
   const loaded = () => {
     return (

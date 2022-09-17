@@ -7,7 +7,11 @@ const Home = () => {
       <Header />
       <div className="home-text">
         <h1>Welcome to Trade Tracker</h1>
-        <h4>Your Home For Simplified Stock Market Data</h4>
+        <div className="instructions">
+          <h3>Enter a valid stock ticker in the search bar</h3>
+          <h3>Don't know the ticker?</h3>
+          <h3>Just type the company name and view the search results</h3>
+        </div>
         <div className="home-search"></div>
       </div>
       <Search />

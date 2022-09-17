@@ -28,6 +28,19 @@ html, body {
   font-size: 15px;
 }
 
+.instructions {
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 15px;
+  color: var(--navy);
+  background-color: rgba(157, 185, 240, 0.6);
+  font-family: "Share Tech", sans-serif;
+}
+
 .stock-links {
   font-family: "Share Tech", sans-serif;
   display: flex;
@@ -80,7 +93,7 @@ nav .searchbar {
   max-height: 300px;
   overflow-x: hidden;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 10px;
   flex-direction: column;
   align-self: center;
@@ -204,6 +217,7 @@ a {
   margin-top: 35px;
   margin-bottom: 35px;
   border: 1px solid;
+  border-radius: 5px;
   max-width: 750px;
   width: 90%;
   height: auto;

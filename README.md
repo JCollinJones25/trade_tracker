@@ -4,7 +4,7 @@
 Trade Tracker is a an app built using React which implements multiple API calls to display current stock market data.
 
 ## Links
-- Click [here](https://trade-tracker-stocks.herokuapp.com/) to visit the site.
+- Click [here](https://trade-tracker-stocks.fly.dev) to visit the site.
 - Click [here](https://www.stockdata.org/) to visit the API for StockData.org.
 - Click [here](https://tickersearch.surge.sh/) to visit the API for ticker search.
 - Click [here](https://apexcharts.com/react-chart-demos/candlestick-charts/category-x-axis/) to visit the API for Apex Charts.
